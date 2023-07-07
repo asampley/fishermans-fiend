@@ -12,6 +12,9 @@ public class Tentacle : MonoBehaviour
 
     private Vector3[] positionBuffer = new Vector3[1];
 
+    // peak to determine when to despawn
+    public float peakY { get; private set; } = 0f;
+
     public Vector2 velocity = Vector2.zero;
     public Vector2 acceleration = Vector2.down;
 
@@ -26,6 +29,12 @@ public class Tentacle : MonoBehaviour
     {
         this.velocity += this.acceleration * Time.fixedDeltaTime;
         this.position += this.velocity * Time.fixedDeltaTime;
+
+        this.peakY = Math.Max(this.peakY, this.position.y);
+
+        if (this.transform.localPosition.y + this.peakY < 0) {
+            Destroy(this.gameObject);
+        }
 
         AddLinePosition(this.position);
         UpdateColliderPosition();
