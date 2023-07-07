@@ -32,8 +32,8 @@ public class Player : MonoBehaviour
     {
         GameObject obj = Instantiate(this.tentaclePrefab.gameObject, (Vector3)position, Quaternion.identity);
 
-        Tentacle tentacle = obj.GetComponent<Tentacle>();
-        tentacle.velocity = velocity;
-        tentacle.acceleration = this.tentacleAcceleration;
+        TentacleLaunch launch = obj.GetComponent<TentacleLaunch>();
+        launch.velocity = velocity;
+        launch.acceleration = this.tentacleAcceleration;
     }
 }

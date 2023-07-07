@@ -5,59 +5,16 @@ using UnityEngine;
 
 public class Tentacle : MonoBehaviour
 {
-    [SerializeField]
-    private Vector2 position = Vector2.zero;
-
-    private Vector3[] positionBuffer = new Vector3[1];
-
-    public Vector2 velocity = Vector2.zero;
-    public Vector2 acceleration = Vector2.down;
-
-    // Update is called once per frame
-    void FixedUpdate()
+    public void Grab(GameObject obj)
     {
-        this.velocity += this.acceleration * Time.fixedDeltaTime;
-        this.position += this.velocity * Time.fixedDeltaTime;
+        this.GetComponent<TentacleLaunch>().enabled = false;
 
-        TentacleDespawn despawn = this.GetComponent<TentacleDespawn>();
-        despawn.peakY = Math.Max(despawn.peakY, this.position.y);
+        var pull = this.GetComponent<TentaclePull>();
+        pull.enabled = true;
+        pull.target = obj;
 
-        AddLinePosition(this.position);
-        UpdateColliderPosition();
-    }
-
-    void AddLinePosition(Vector3 add)
-    {
-        LineRenderer line = this.GetComponent<LineRenderer>();
-
-        if (this.positionBuffer.Length < line.positionCount + 1)
-        {
-            Array.Resize(ref this.positionBuffer, Math.Max(1, this.positionBuffer.Length * 2));
-        }
-
-        this.positionBuffer[line.positionCount] = add;
-
-        line.positionCount += 1;
-        line.SetPositions(this.positionBuffer);
-    }
-
-    void UpdateColliderPosition()
-    {
-        Collider2D collider = this.GetComponent<Collider2D>();
-
-        collider.offset = this.position;
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.GetComponent<ICollidable>().Collide(this);
-    }
-
-    public void Grab(ICollidable obj)
-    {
-        this.enabled = false;
-        this.GetComponent<TentaclePull>().enabled = true;
-        this.GetComponent<Rigidbody2D>().isKinematic = true;
-        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        var body = this.GetComponent<Rigidbody2D>();
+        body.isKinematic = true;
+        body.velocity = Vector2.zero;
     }
 }

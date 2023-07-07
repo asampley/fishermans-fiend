@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5615743133353160342}
   - component: {fileID: -6310529057829463064}
   - component: {fileID: 311839523473019949}
+  - component: {fileID: 1311530419985038888}
   - component: {fileID: -5631881897689908147}
   - component: {fileID: 2936079991764596938}
   - component: {fileID: 2837865249851672740}
@@ -49,9 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc73feb211f2aa4f85b09074bd9004b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0}
-  velocity: {x: 0, y: 0}
-  acceleration: {x: 0, y: 0}
 --- !u!114 &-6310529057829463064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +75,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2393d3b19a581a4780d23dd39030c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!114 &1311530419985038888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692301579529098148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1059d518045f8409679325cbfb69a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
+  acceleration: {x: 0, y: -1}
 --- !u!120 &-5631881897689908147
 LineRenderer:
   serializedVersion: 2

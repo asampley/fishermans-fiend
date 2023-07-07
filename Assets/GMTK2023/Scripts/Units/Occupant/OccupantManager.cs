@@ -19,5 +19,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
         //Start Minigame
         Debug.Log("Collided");
         _isCollided = true;
+
+        tentacle.Grab(this.gameObject);
     }
 }
