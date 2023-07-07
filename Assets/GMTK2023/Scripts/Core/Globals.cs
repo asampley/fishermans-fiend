@@ -19,6 +19,7 @@ public static class Globals
     public static float MAX_TIME_BETWEEN_ENEMY_SPAWNS = 20f;
 
 
+
     public static DayData[] DAY_DATA;
     public static EnemyData[] ENEMY_DATA;
     public static ObstacleData[] OBSTACLE_DATA;

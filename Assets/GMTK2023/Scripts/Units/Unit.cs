@@ -7,6 +7,8 @@ public class Unit
     private Transform _transform;
     private UnitManager _unitManager;
 
+    private Sprite _sprite;
+    public Sprite Sprite => _sprite;
     private float _speed;
     public float Speed => _speed;
 
@@ -16,8 +18,10 @@ public class Unit
         _transform = g.transform;
         _transform.position = spawnsOnLeft ? new(-Globals.X_EDGE, spawnHeight): new(Globals.X_EDGE, spawnHeight);
         _unitManager = _transform.GetComponent<UnitManager>();
-        _unitManager.Initialize(this, spawnsOnLeft);
-
+        
+        _sprite = data.Sprite;
         _speed = data.Speed;
+
+        _unitManager.Initialize(this, spawnsOnLeft);
     }
 }

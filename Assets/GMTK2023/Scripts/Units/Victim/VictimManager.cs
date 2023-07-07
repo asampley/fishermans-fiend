@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class VictimManager : UnitManager, ICollidable
 {
-    [SerializeField] public Collider2D[] _colliders;
-    private float _numPassengers;
+    [SerializeField] GameObject[] _occupants;
 
-    public void Initialize()
+    public void Initialize(Unit unit, bool movesFromLeft, OccupantData[] occupantDatas)
     {
-        
+        int numOccupants = Random.Range(1, 4);
+
+        for (int i = 0; i < numOccupants; i++)
+        {
+            _occupants[i].SetActive(true);
+            OccupantManager occupantManager = _occupants[i].GetComponent<OccupantManager>();
+            occupantManager.Initialize(occupantDatas[i]);
+        }
+
+        base.Initialize(unit, movesFromLeft);
     }
 
-    public void Collide()
+    public void Collide(Tentacle tentacle)
     {
 
     }

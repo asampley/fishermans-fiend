@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer _spriteRenderer;
     private Unit _unit;
     private bool _movesFromLeft;
 
@@ -11,6 +12,7 @@ public class UnitManager : MonoBehaviour
     {
         _unit = unit;
         _movesFromLeft = movesFromLeft;
+        _spriteRenderer.sprite = unit.Sprite;
     }
 
     private void Update()
