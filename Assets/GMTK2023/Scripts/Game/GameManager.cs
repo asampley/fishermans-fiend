@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager _instance;
+    public static GameManager Instance => _instance;
+
     private int _currentDay = 0;
     public int CurrentDay => _currentDay;
     private DayData _currentDayData;
+    private float _dayTimer;
+    private bool _isNight;
 
     private float _spawnEnemyTimer;
     private float _spawnObstacleTimer;
@@ -16,7 +21,17 @@ public class GameManager : MonoBehaviour
     private float _nextObstacleSpawn;
     private float _nextVictimSpawn;
 
+    private int _currentBiomass;
+    public int CurrentBiomass => _currentBiomass;
 
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -37,6 +52,10 @@ public class GameManager : MonoBehaviour
         {
             _CheckVictimSpawn();
         }
+
+        _dayTimer += Time.deltaTime;
+        if (!_isNight && _dayTimer >= Globals.DAY_DURATION) _StartNight();
+        if (_dayTimer >= Globals.DAY_TOTAL_DURATION) _EndDay();
     }
 
     private void _CheckEnemySpawn()
@@ -86,6 +105,18 @@ public class GameManager : MonoBehaviour
 
         _currentDay++;
         _currentDayData = Globals.DAY_DATA.Where((DayData x) => x.DayNumber == _currentDay).First();
+        _dayTimer = 0f;
+    }
+
+    private void _StartNight()
+    {
+        _isNight = true;
+        Debug.Log("It is night time");
+    }
+
+    private void _EndDay()
+    {
+        Debug.Log("Day is over");
     }
 
     private void _SpawnUnit(UnitData data)

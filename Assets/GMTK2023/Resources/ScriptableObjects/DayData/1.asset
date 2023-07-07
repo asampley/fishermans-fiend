@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   DayNumber: 1
-  EnemiesToSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
+  EnemiesToSpawn: []
   ObstaclesToSpawn: []
-  VictimToSpawn: []
+  VictimsToSpawn:
+  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}

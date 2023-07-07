@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c9b212fec732b4b9ffd5f53792df74, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 4177565170746423647, guid: 722b92f47c5f93a4abf140542eb08a2a, type: 3}
   Sprite: {fileID: 0}
-  Speed: 0
+  SpawnsBelowSurface: 0
+  Speed: 2
   VictimTypeId: 0
