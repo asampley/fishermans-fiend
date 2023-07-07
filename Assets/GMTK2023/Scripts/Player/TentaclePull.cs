@@ -15,7 +15,9 @@ public class TentaclePull : MonoBehaviour
         Vector3[] positions = new Vector3[line.positionCount];
         line.GetPositions(positions);
 
-        positions[^1] = this.target.GetComponent<Transform>().position;
+        positions[^1] = this.target.GetComponent<Transform>().position
+            + (Vector3)this.target.GetComponent<Collider2D>().offset
+            - this.transform.position;
 
         float deltaX = positions[^1].x - positions[0].x;
         float deltaY = positions[^1].y - positions[0].y;
@@ -23,11 +25,11 @@ public class TentaclePull : MonoBehaviour
         for (int i = 1; i < positions.Length - 1; ++i) {
             Vector2 positionTarget = new
                 (
-                    deltaX * i / (positions.Length - 1),
-                    deltaY * Mathf.Pow((float)i / (positions.Length - 1), 2f)
+                    Mathf.Lerp(positions[i - 1].x, positions[i + 1].x, 0.5f),
+                    Mathf.Lerp(positions[i - 1].y, positions[i + 1].y, 0.4f)
                 );
 
-            positions[i] = Vector3.Lerp(positions[i], positionTarget, Time.fixedDeltaTime);
+            positions[i] = positionTarget;
         }
 
         line.SetPositions(positions);
