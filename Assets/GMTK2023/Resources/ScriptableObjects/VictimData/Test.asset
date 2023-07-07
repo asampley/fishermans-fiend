@@ -17,4 +17,5 @@ MonoBehaviour:
   SpawnsBelowSurface: 0
   Speed: 1
   VictimTypeId: 0
-  PotentialOccupants: []
+  PotentialOccupants:
+  - {fileID: 11400000, guid: c024c76352d85bf4dbd7d87223c88019, type: 2}

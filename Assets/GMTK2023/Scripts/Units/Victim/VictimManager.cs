@@ -6,18 +6,20 @@ public class VictimManager : UnitManager, ICollidable
 {
     [SerializeField] GameObject[] _occupants;
 
-    public void Initialize(Unit unit, bool movesFromLeft, OccupantData[] occupantDatas)
+
+    public void Initialize(Victim victim, bool movesFromLeft, OccupantData[] occupantDatas)
     {
+        _isStopped = false;
         int numOccupants = Random.Range(1, 4);
 
         for (int i = 0; i < numOccupants; i++)
         {
             _occupants[i].SetActive(true);
             OccupantManager occupantManager = _occupants[i].GetComponent<OccupantManager>();
-            occupantManager.Initialize(occupantDatas[i]);
+            occupantManager.Initialize(occupantDatas[Random.Range(0, occupantDatas.Length)], this);
         }
 
-        base.Initialize(unit, movesFromLeft);
+        base.Initialize(victim, movesFromLeft);
     }
 
     public void Collide(Tentacle tentacle)

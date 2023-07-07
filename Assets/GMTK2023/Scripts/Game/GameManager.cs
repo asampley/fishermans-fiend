@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         if (_spawnEnemyTimer >= _nextEnemySpawn)
         {
             EnemyData enemy = _currentDayData.EnemiesToSpawn[Random.Range(0, _currentDayData.EnemiesToSpawn.Length)];
-            _SpawnUnit(enemy);
+            _SpawnEnemy(enemy);
             _spawnEnemyTimer = 0f;
             _nextEnemySpawn = Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown);
         }
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         if (_spawnObstacleTimer >= _nextObstacleSpawn)
         {
             ObstacleData obstacle = _currentDayData.ObstaclesToSpawn[Random.Range(0, _currentDayData.ObstaclesToSpawn.Length)];
-            _SpawnUnit(obstacle);
+            _SpawnObstacle(obstacle);
             _spawnObstacleTimer = 0f;
             _nextObstacleSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
         }
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Running");
             VictimData Victim = _currentDayData.VictimsToSpawn[Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
-            _SpawnUnit(Victim);
+            _SpawnVictim(Victim);
             _spawnVictimTimer = 0f;
             _nextVictimSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown);
         }
@@ -127,7 +127,36 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void _SpawnUnit(UnitData data)
+    private void _SpawnEnemy(EnemyData data)
+    {
+        bool spawnOnLeft = Random.Range(0, 2) == 0;
+
+        if (data.SpawnsBelowSurface)
+        {
+            float height = Random.Range(Globals.Y_MIN, Globals.Y_MAX);
+            new Enemy(data, spawnOnLeft, height);
+        }
+        else
+        {
+            new Enemy(data, spawnOnLeft, Globals.SURFACE_HEIGHT);
+        }
+    }
+
+    private void _SpawnObstacle(ObstacleData data)
+    {
+        bool spawnOnLeft = Random.Range(0, 2) == 0;
+
+        if (data.SpawnsBelowSurface)
+        {
+            float height = Random.Range(Globals.Y_MIN, Globals.Y_MAX);
+            new Obstacle(data, spawnOnLeft, height);
+        }
+        else
+        {
+            new Obstacle(data, spawnOnLeft, Globals.SURFACE_HEIGHT);
+        }
+    }
+    private void _SpawnVictim(VictimData data)
     {
         bool spawnOnLeft = Random.Range(0, 2) == 0;
 
@@ -139,7 +168,6 @@ public class GameManager : MonoBehaviour
         else
         {
             new Victim(data, spawnOnLeft, Globals.SURFACE_HEIGHT);
-        }
-        
+        }        
     }
 }
