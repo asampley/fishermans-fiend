@@ -48,7 +48,12 @@ public class Tentacle : MonoBehaviour
         collider.offset = this.position;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.GetComponent<ICollidable>().Collide(this);
+    }
+
+    public void Grab(ICollidable obj)
     {
         this.enabled = false;
         this.GetComponent<TentaclePull>().enabled = true;

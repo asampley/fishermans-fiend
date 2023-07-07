@@ -7,4 +7,5 @@ using UnityEngine;
 public class VictimData : UnitData
 {
     public int VictimTypeId;
+    public OccupantData[] PotentialOccupants;
 }
