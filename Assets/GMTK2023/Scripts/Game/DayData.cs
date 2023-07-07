@@ -9,5 +9,5 @@ public class DayData : ScriptableObject
     public int DayNumber;
     public EnemyData[] EnemiesToSpawn;
     public ObstacleData[] ObstaclesToSpawn;
-    public VictimData[] VictimToSpawn;
+    public VictimData[] VictimsToSpawn;
 }
