@@ -23,5 +23,10 @@ public class UnitManager : MonoBehaviour
         {
             this.transform.Translate(_unit.Speed * Time.deltaTime * Vector2.left);
         }
+
+        if (this.transform.position.x > Globals.X_EDGE || this.transform.position.x < -Globals.X_EDGE)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 }
