@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b714651f130511645a8717836a4fe0df, type: 3}
-  m_Name: 1
+  m_Script: {fileID: 11500000, guid: 1bd43eb658c620941b7eb09348fe0832, type: 3}
+  m_Name: Test
   m_EditorClassIdentifier: 
-  DayNumber: 1
-  EnemiesToSpawn: []
-  ObstaclesToSpawn: []
-  VictimsToSpawn:
-  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
-  SpawnCooldown: 5
+  Sprite: {fileID: 21300000, guid: 8449ec0189903b24c80152ad13944b4b, type: 3}
+  Name: Dude
+  Desc: A basic dude.
+  Rarity: 0
+  Biomass: 0

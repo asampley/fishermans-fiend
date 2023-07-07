@@ -10,4 +10,6 @@ public class DayData : ScriptableObject
     public EnemyData[] EnemiesToSpawn;
     public ObstacleData[] ObstaclesToSpawn;
     public VictimData[] VictimsToSpawn;
+
+    public float SpawnCooldown;
 }

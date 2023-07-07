@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleManager : UnitManager, ICollidable
 {
-    public void Collide()
+    public void Collide(Tentacle tentacle)
     {
 
     }

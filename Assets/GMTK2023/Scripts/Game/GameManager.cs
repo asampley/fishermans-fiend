@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance => _instance;
+    private bool _gameIsPaused;
+    public bool GameIsPaused => _gameIsPaused;
 
     private int _currentDay = 0;
     public int CurrentDay => _currentDay;
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (_gameIsPaused) return;
+
         if (_currentDayData.EnemiesToSpawn.Length > 0)
         {
             _CheckEnemySpawn();
@@ -66,7 +70,7 @@ public class GameManager : MonoBehaviour
             EnemyData enemy = _currentDayData.EnemiesToSpawn[Random.Range(0, _currentDayData.EnemiesToSpawn.Length)];
             _SpawnUnit(enemy);
             _spawnEnemyTimer = 0f;
-            _nextEnemySpawn = Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS);
+            _nextEnemySpawn = Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown);
         }
     }
 
@@ -78,7 +82,7 @@ public class GameManager : MonoBehaviour
             ObstacleData obstacle = _currentDayData.ObstaclesToSpawn[Random.Range(0, _currentDayData.ObstaclesToSpawn.Length)];
             _SpawnUnit(obstacle);
             _spawnObstacleTimer = 0f;
-            _nextObstacleSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS);
+            _nextObstacleSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
         }
     }
 
@@ -87,10 +91,11 @@ public class GameManager : MonoBehaviour
         _spawnVictimTimer += Time.deltaTime;
         if (_spawnVictimTimer >= _nextVictimSpawn)
         {
+            Debug.Log("Running");
             VictimData Victim = _currentDayData.VictimsToSpawn[Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
             _SpawnUnit(Victim);
             _spawnVictimTimer = 0f;
-            _nextVictimSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS);
+            _nextVictimSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown);
         }
     }
 
@@ -116,7 +121,10 @@ public class GameManager : MonoBehaviour
 
     private void _EndDay()
     {
+        _gameIsPaused = true;
+        Time.timeScale = 0;
         Debug.Log("Day is over");
+
     }
 
     private void _SpawnUnit(UnitData data)
