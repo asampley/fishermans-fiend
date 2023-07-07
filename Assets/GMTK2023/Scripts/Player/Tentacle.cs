@@ -9,12 +9,11 @@ public class Tentacle : MonoBehaviour
 {
     [SerializeField]
     private Vector2 position = Vector2.zero;
-    [SerializeField]
-    private Vector2 velocity = Vector2.zero;
-    [SerializeField]
-    private Vector2 acceleration = Vector2.down;
 
     private Vector3[] positionBuffer = new Vector3[1];
+
+    public Vector2 velocity = Vector2.zero;
+    public Vector2 acceleration = Vector2.down;
 
     // Start is called before the first frame update
     void Start()
