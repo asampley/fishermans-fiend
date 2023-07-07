@@ -4,9 +4,9 @@ public static class Globals
     public static float SURFACE_HEIGHT = 3f;
 
 
-    public static UnitData[] ENEMY_DATA;
-    public static UnitData[] OBSTACLE_DATA;
-    public static UnitData[] VICTIM_DATA;
+    public static EnemyData[] ENEMY_DATA;
+    public static ObstacleData[] OBSTACLE_DATA;
+    public static VictimData[] VICTIM_DATA;
 
 
     public static string ENEMY_DATA_FOLDER = "ScriptableObjects/EnemyData";

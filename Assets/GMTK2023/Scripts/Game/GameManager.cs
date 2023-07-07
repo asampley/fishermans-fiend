@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         int unitId = 0;
-        UnitData unitToSpawn = Globals.VICTIM_DATA.Where((UnitData x) => x.UnitTypeId == unitId).First();
-        new Unit(unitToSpawn, false, Globals.SURFACE_HEIGHT);
+        VictimData unitToSpawn = Globals.VICTIM_DATA.Where((VictimData x) => x.VictimTypeId == unitId).First();
+        new Victim(unitToSpawn, false, Globals.SURFACE_HEIGHT);
     }
 }
