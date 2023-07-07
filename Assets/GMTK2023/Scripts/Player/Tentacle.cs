@@ -61,4 +61,9 @@ public class Tentacle : MonoBehaviour
 
         collider.offset = this.position;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.GetComponent<ICollidable>().Collide(this);
+    }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICollidable
 {
-    public void Collide();
+    public void Collide(Tentacle tentacle);
 }
