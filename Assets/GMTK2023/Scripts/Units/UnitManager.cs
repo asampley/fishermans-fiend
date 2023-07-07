@@ -13,6 +13,7 @@ public class UnitManager : MonoBehaviour
         _unit = unit;
         _movesFromLeft = movesFromLeft;
         _spriteRenderer.sprite = unit.Sprite;
+        _spriteRenderer.flipX = !movesFromLeft;
     }
 
     private void Update()
