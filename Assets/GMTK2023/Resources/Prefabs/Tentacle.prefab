@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5033202905242461769}
   - component: {fileID: 5615743133353160342}
+  - component: {fileID: -6310529057829463064}
+  - component: {fileID: 311839523473019949}
   - component: {fileID: -5631881897689908147}
   - component: {fileID: 2936079991764596938}
   - component: {fileID: 2837865249851672740}
@@ -50,6 +52,31 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   acceleration: {x: 0, y: 0}
+--- !u!114 &-6310529057829463064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692301579529098148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9e4ed160eb190b4797bf1a63e8d4796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  peakY: 0
+--- !u!114 &311839523473019949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692301579529098148}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2393d3b19a581a4780d23dd39030c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &-5631881897689908147
 LineRenderer:
   serializedVersion: 2

@@ -1,5 +1,3 @@
-#nullable enable
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,17 +10,8 @@ public class Tentacle : MonoBehaviour
 
     private Vector3[] positionBuffer = new Vector3[1];
 
-    // peak to determine when to despawn
-    public float peakY { get; private set; } = 0f;
-
     public Vector2 velocity = Vector2.zero;
     public Vector2 acceleration = Vector2.down;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -30,11 +19,8 @@ public class Tentacle : MonoBehaviour
         this.velocity += this.acceleration * Time.fixedDeltaTime;
         this.position += this.velocity * Time.fixedDeltaTime;
 
-        this.peakY = Math.Max(this.peakY, this.position.y);
-
-        if (this.transform.localPosition.y + this.peakY < 0) {
-            Destroy(this.gameObject);
-        }
+        TentacleDespawn despawn = this.GetComponent<TentacleDespawn>();
+        despawn.peakY = Math.Max(despawn.peakY, this.position.y);
 
         AddLinePosition(this.position);
         UpdateColliderPosition();
@@ -60,5 +46,13 @@ public class Tentacle : MonoBehaviour
         Collider2D collider = this.GetComponent<Collider2D>();
 
         collider.offset = this.position;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        this.enabled = false;
+        this.GetComponent<TentaclePull>().enabled = true;
+        this.GetComponent<Rigidbody2D>().isKinematic = true;
+        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }
