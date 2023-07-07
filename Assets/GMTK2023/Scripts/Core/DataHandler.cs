@@ -11,6 +11,7 @@ public class DataHandler : MonoBehaviour
 
     public void LoadGameData()
     {
+        Globals.DAY_DATA = Resources.LoadAll<DayData>(Globals.DAY_DATA_FOLDER);
         Globals.ENEMY_DATA = Resources.LoadAll<EnemyData>(Globals.ENEMY_DATA_FOLDER);
         Globals.OBSTACLE_DATA = Resources.LoadAll<ObstacleData>(Globals.OBSTACLE_DATA_FOLDER);
         Globals.VICTIM_DATA = Resources.LoadAll<VictimData>(Globals.VICTIM_DATA_FOLDER);

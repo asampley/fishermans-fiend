@@ -7,5 +7,7 @@ public class UnitData : ScriptableObject
 {
     public GameObject Prefab;
     public Sprite Sprite;
+
+    public bool SpawnsBelowSurface;
     public float Speed;
 }

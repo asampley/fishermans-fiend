@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c9b212fec732b4b9ffd5f53792df74, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: b714651f130511645a8717836a4fe0df, type: 3}
+  m_Name: 1
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 4177565170746423647, guid: 722b92f47c5f93a4abf140542eb08a2a, type: 3}
-  Sprite: {fileID: 0}
-  SpawnsBelowSurface: 0
-  Speed: 2
-  VictimTypeId: 0
+  DayNumber: 1
+  EnemiesToSpawn: []
+  ObstaclesToSpawn: []
+  VictimsToSpawn:
+  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
