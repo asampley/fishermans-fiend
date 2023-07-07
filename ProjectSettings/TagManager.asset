@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Victims
+    uniqueID: 1658960753
+    locked: 0
