@@ -134,7 +134,8 @@ public class GameManager : MonoBehaviour
                 _currentDayData.DayObstaclesToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayObstaclesToSpawn.Length)];
             _SpawnObstacle(obstacle);
             _spawnObstacleTimer = 0f;
-            _nextObstacleSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
+            _nextObstacleSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown * AwarenessMult,
+                Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult;
         }
     }
 
