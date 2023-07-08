@@ -7,9 +7,15 @@ public class PiscatoriaryManager : MonoBehaviour
     [SerializeField]
     private Transform _parent;
     [SerializeField]
+    private Transform _listParent;
+    [SerializeField]
+    private Transform _entryParent;
+    [SerializeField]
     private GameObject _uncaughtPrefab;
     [SerializeField]
     private GameObject _caughtPrefab;
+
+
     private Dictionary<OccupantData, bool> _hasBeenCaughtDict = new();
 
 
