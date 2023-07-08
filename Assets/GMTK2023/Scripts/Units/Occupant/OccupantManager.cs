@@ -20,19 +20,18 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
     void OnEnable() {
         _fishingGame.Lost += OnLost;
-        //_fishingGame.Won += OnWon;
+        _fishingGame.Won += OnWon;
     }
 
     void OnDisable() {
         _fishingGame.Lost -= OnLost;
-        //_fishingGame.Won -= OnWon;
+        _fishingGame.Won -= OnWon;
     }
 
     public void Collide(Tentacle tentacle)
     {
         if (_isCollided == true) return;
         //Start Minigame
-        Debug.Log("Collided");
         _isCollided = true;
 
         tentacle.Grab(this.gameObject);
@@ -41,12 +40,22 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
     void OnLost()
     {
-        _fishingGame.enabled = false;
         _parent.CalculateSpeed();
+    }
+
+    void OnWon()
+    {
+        this.Fall();
     }
 
     public bool IsRowing()
     {
         return !_fishingGame.enabled || _fishingGame.HasLost();
+    }
+
+    public void Fall()
+    {
+        Debug.Log("Falling");
+        this.transform.SetParent(_fishingGame.tentacle.transform);
     }
 }

@@ -5,10 +5,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     private Vector2 tentacleAcceleration;
-    public float strength = 1f;
 
     public Tentacle tentaclePrefab;
-
 
     void OnEnable()
     {
@@ -30,7 +28,7 @@ public class Player : MonoBehaviour
             GameManager.Instance.MaxTentacleLaunchStrength
             );
         Vector2 position = ev.mouseDown;
-        position.y = this.transform.position.y;        
+        position.y = this.transform.position.y;
 
         SpawnTentacle(position, velocity);
     }
@@ -40,7 +38,6 @@ public class Player : MonoBehaviour
         GameObject obj = Instantiate(this.tentaclePrefab.gameObject, (Vector3)position, Quaternion.identity);
 
         Tentacle tentacle = obj.GetComponent<Tentacle>();
-        tentacle.strength = this.strength;
 
         TentacleLaunch launch = obj.GetComponent<TentacleLaunch>();
         launch.velocity = velocity;

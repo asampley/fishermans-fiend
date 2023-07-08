@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public float MaxTentacleLaunchStrength => _maxTentacleLaunchStrength;
     private int _maxTentacles = 1;
     public int MaxTentacles => _maxTentacles;
+    private float _tentactleStrength = 1f;
+    public float TentacleStrength => _tentactleStrength;
 
     private float _tentacleVelocityScale = 1f;
     public float TentacleVelocityScale => _tentacleVelocityScale;
@@ -205,7 +207,7 @@ public class GameManager : MonoBehaviour
         else
         {
             new Victim(data, spawnOnLeft, Globals.SURFACE_HEIGHT);
-        }        
+        }
     }
 
     private void _OnSelectUpgrade(object data)
