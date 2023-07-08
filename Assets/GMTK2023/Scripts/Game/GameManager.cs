@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Sprite _moonSprite;
     [SerializeField]
+    private SpriteRenderer _skyObject;
+    [SerializeField]
+    private Sprite _skyDaySprite;
+    [SerializeField]
+    private Sprite _skyNightSprite;
+
+    [SerializeField]
     private AudioClip _playerHurtClip;
 
     private float _spawnEnemyTimer;
@@ -167,6 +174,7 @@ public class GameManager : MonoBehaviour
         _currentDayData = Globals.DAY_DATA.Where((DayData x) => x.DayNumber == _currentDay).First();
         _dayTimer = 0f;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _sunSprite;
+        _skyObject.sprite = _skyDaySprite;
     }
 
     private void _UpdateSunObject()
@@ -189,6 +197,7 @@ public class GameManager : MonoBehaviour
     private void _StartNight()
     {
         _isNight = true;
+        _skyObject.sprite = _skyNightSprite;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _moonSprite;
     }
 
