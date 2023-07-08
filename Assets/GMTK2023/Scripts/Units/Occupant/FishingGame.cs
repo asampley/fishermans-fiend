@@ -12,6 +12,11 @@ public class FishingGame : MonoBehaviour
     public AudioClip clip;
     public AudioSource source;
 
+    public Sprite pressPressed;
+    public Sprite nopressPressed;
+    public Sprite pressNotpressed;
+    public Sprite nopressNotpressed;
+
     private int key;
     private KeyCode keyCode { get { return Globals.KEYS[key]; } }
 
@@ -87,11 +92,17 @@ public class FishingGame : MonoBehaviour
 
         if (press && pressed)
         {
+            gameImage.sprite = pressPressed;
             health -= GameManager.Instance.TentacleStrength * Time.deltaTime;
         }
         else if (press != pressed)
         {
+            gameImage.sprite = press ? pressNotpressed : nopressPressed;
             resistanceProgress += Time.deltaTime * resistance;
+        }
+        else
+        {
+            gameImage.sprite = nopressNotpressed;
         }
 
         if (this.HasWon())
