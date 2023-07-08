@@ -23,6 +23,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
         _parent = parent;
         _fishingGame.resistance = data.Resistance;
         _fishingGame.health = data.Health;
+        _fishingGame.clip = data.fighting.Rand();
     }
 
     void OnEnable() {

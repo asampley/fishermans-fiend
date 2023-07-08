@@ -9,6 +9,9 @@ public class FishingGame : MonoBehaviour
 {
     private static bool[] takenKeys = new bool[Globals.KEYS.Length];
 
+    public AudioClip clip;
+    public AudioSource source;
+
     private int key;
     private KeyCode keyCode { get { return Globals.KEYS[key]; } }
 
@@ -36,6 +39,9 @@ public class FishingGame : MonoBehaviour
 
     void OnEnable()
     {
+        source.clip = clip;
+        source.Play();
+
         for (int i = 0; i < takenKeys.Length; ++i)
         {
             if (!takenKeys[i])
@@ -54,6 +60,9 @@ public class FishingGame : MonoBehaviour
 
     void OnDisable()
     {
+        source.clip = null;
+        source.Stop();
+
         takenKeys[this.key] = false;
         gameImage.gameObject.SetActive(false);
     }
