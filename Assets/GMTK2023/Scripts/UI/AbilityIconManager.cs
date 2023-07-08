@@ -17,6 +17,6 @@ public class AbilityIconManager : MonoBehaviour
 
     public void SetMaskPercentage(float percentage)
     {
-        _cooldownMask.fillAmount = percentage;
+        _cooldownMask.fillAmount = 1 - percentage;
     }
 }
