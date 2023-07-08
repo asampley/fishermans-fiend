@@ -39,14 +39,14 @@ public class GameManager : MonoBehaviour
     public float AttackStrength => _attackStrength;
     private float _biomassMultiplier = 1f;
     public float BiomassMultipier => _biomassMultiplier;
-    private float _maxTentacleLaunchStrength = 8f;
+    private float _maxTentacleLaunchStrength = 10f;
     public float MaxTentacleLaunchStrength => _maxTentacleLaunchStrength;
     private int _maxTentacles = 1;
     public int MaxTentacles => _maxTentacles;
     private float _tentactleStrength = 1f;
     public float TentacleStrength => _tentactleStrength;
 
-    private float _tentacleVelocityScale = 1f;
+    private float _tentacleVelocityScale = 4f;
     public float TentacleVelocityScale => _tentacleVelocityScale;
     private bool _canPoisonDart = false;
     public bool CanPoisonDart => _canPoisonDart;
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         if (!_isNight && _currentDayData.DayEnemiesToSpawn.Length > 0
             || _isNight && _currentDayData.NightEnemiesToSpawn.Length > 0)
         {
-            _CheckEnemySpawn(); 
+            _CheckEnemySpawn();
         }
         if (!_isNight && _currentDayData.DayObstaclesToSpawn.Length > 0
             || _isNight && _currentDayData.NightObstaclesToSpawn.Length > 0)
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
             _CheckObstacleSpawn();
         }
         if (!_isNight && _currentDayData.DayVictimsToSpawn.Length > 0
-            || _isNight && _currentDayData.NightVictimsToSpawn.Length > 0) 
+            || _isNight && _currentDayData.NightVictimsToSpawn.Length > 0)
         {
             _CheckVictimSpawn();
         }
@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
         else
         {
             distancePercent = (_dayTimer - Globals.DAY_DURATION) / Globals.NIGHT_DURATION;
-            
+
         }
 
         _sunObject.position = new(-10f + (distancePercent * 20f), Globals.SUN_OBJECT_Y);

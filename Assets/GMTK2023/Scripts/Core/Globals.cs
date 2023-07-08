@@ -3,10 +3,10 @@ using UnityEngine;
 public static class Globals
 {
     public static float X_EDGE = 10f;
-    public static float SURFACE_HEIGHT = 7f;
-    public static float Y_MIN = 0.5f;
-    public static float Y_MAX = 6f;
-    public static float SUN_OBJECT_Y = 8f;
+    public static float SURFACE_HEIGHT = 8f;
+    public static float Y_MIN = 1.5f;
+    public static float Y_MAX = 7f;
+    public static float SUN_OBJECT_Y = 9f;
 
     public static float DAY_DURATION = 30f;
     public static float NIGHT_DURATION = 15f;
