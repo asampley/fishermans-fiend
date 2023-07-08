@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     private DayData _currentDayData;
     private float _dayTimer;
     private bool _isNight;
+    [SerializeField]
+    private Transform _sunObject;
+    [SerializeField]
+    private Sprite _sunSprite;
+    [SerializeField]
+    private Sprite _moonSprite;
 
     private float _spawnEnemyTimer;
     private float _spawnObstacleTimer;
@@ -89,6 +95,7 @@ public class GameManager : MonoBehaviour
         }
 
         _dayTimer += Time.deltaTime;
+        _UpdateSunObject();
         if (!_isNight && _dayTimer >= Globals.DAY_DURATION) _StartNight();
         if (_dayTimer >= Globals.DAY_TOTAL_DURATION) _EndDay();
     }
@@ -122,8 +129,8 @@ public class GameManager : MonoBehaviour
         _spawnVictimTimer += Time.deltaTime;
         if (_spawnVictimTimer >= _nextVictimSpawn)
         {
-            VictimData Victim = _currentDayData.VictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
-            _SpawnVictim(Victim);
+            VictimData victim = _currentDayData.VictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
+            _SpawnVictim(victim);
             _spawnVictimTimer = 0f;
             _nextVictimSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown);
         }
@@ -141,11 +148,30 @@ public class GameManager : MonoBehaviour
         _currentDay++;
         _currentDayData = Globals.DAY_DATA.Where((DayData x) => x.DayNumber == _currentDay).First();
         _dayTimer = 0f;
+        _sunObject.GetComponent<SpriteRenderer>().sprite = _sunSprite;
+    }
+
+    private void _UpdateSunObject()
+    {
+        float distancePercent;
+
+        if (!_isNight)
+        {
+            distancePercent = _dayTimer / Globals.DAY_DURATION;
+        }
+        else
+        {
+            distancePercent = (_dayTimer - Globals.DAY_DURATION) / Globals.NIGHT_DURATION;
+            
+        }
+
+        _sunObject.position = new(-10f + (distancePercent * 20f), Globals.SUN_OBJECT_Y);
     }
 
     private void _StartNight()
     {
         _isNight = true;
+        _sunObject.GetComponent<SpriteRenderer>().sprite = _moonSprite;
         Debug.Log("It is night time");
     }
 
