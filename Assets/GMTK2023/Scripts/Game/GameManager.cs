@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour
         _spawnVictimTimer += Time.deltaTime;
         if (_spawnVictimTimer >= _nextVictimSpawn)
         {
-            Debug.Log("Running");
             VictimData Victim = _currentDayData.VictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
             _SpawnVictim(Victim);
             _spawnVictimTimer = 0f;

@@ -109,7 +109,6 @@ public class PiscatoriaryManager : MonoBehaviour
 
     private void _OnTogglePiscatoriary()
     {
-        Debug.Log("running");
         _parent.gameObject.SetActive(!_parent.gameObject.activeInHierarchy);
     }
 }
