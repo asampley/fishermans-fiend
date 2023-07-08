@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
             (ev.mouseDown - ev.mouseUp) * GameManager.Instance.TentacleVelocityScale,
             GameManager.Instance.MaxTentacleLaunchStrength
             );
-        Debug.Log(velocity.magnitude / 30);
         Vector2 position = ev.mouseDown;
         position.y = this.transform.position.y;        
 
