@@ -7,6 +7,25 @@ public class TentaclePull : MonoBehaviour
 {
     public GameObject target;
 
+    void OnEnable()
+    {
+        var tentacle = this.GetComponent<Tentacle>();
+
+        var game = target.GetComponent<FishingGame>();
+        game.opponentStrength = tentacle.strength;
+        game.key = KeyCode.Alpha1;
+        game.Lost += tentacle.Fall;
+        game.enabled = true;
+    }
+
+    void OnDisable()
+    {
+        var tentacle = this.GetComponent<Tentacle>();
+
+        var game = target.GetComponent<FishingGame>();
+        game.Lost -= tentacle.Fall;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -26,7 +45,7 @@ public class TentaclePull : MonoBehaviour
             Vector2 positionTarget = new
                 (
                     Mathf.Lerp(positions[i - 1].x, positions[i + 1].x, 0.5f),
-                    Mathf.Lerp(positions[i - 1].y, positions[i + 1].y, 0.4f)
+                    Mathf.Lerp(positions[i - 1].y, positions[i + 1].y, 0.45f)
                 );
 
             positions[i] = positionTarget;

@@ -1,5 +1,3 @@
-#nullable enable
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,9 +5,9 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    private Vector2? mouseDown;
+    private Vector2 mouseDown;
 
-    public static event Action<MouseDragEvent>? MouseDrag;
+    public static event Action<MouseDragEvent> MouseDrag;
 
     void OnEnable() {
         MouseDrag += PrintEvent;
@@ -29,14 +27,11 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (!(mouseDown is null))
-            {
-                MouseDrag?.Invoke
-                (
-                    new((Vector2)mouseDown,
-                    (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition))
-                );
-            }
+            MouseDrag?.Invoke
+            (
+                new((Vector2)mouseDown,
+                (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition))
+            );
         }
     }
 

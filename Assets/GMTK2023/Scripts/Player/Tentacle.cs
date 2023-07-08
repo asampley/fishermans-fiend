@@ -5,16 +5,24 @@ using UnityEngine;
 
 public class Tentacle : MonoBehaviour
 {
+    public float strength;
+
     public void Grab(GameObject obj)
     {
         this.GetComponent<TentacleLaunch>().enabled = false;
 
         var pull = this.GetComponent<TentaclePull>();
-        pull.enabled = true;
         pull.target = obj;
+        pull.enabled = true;
 
         var body = this.GetComponent<Rigidbody2D>();
         body.isKinematic = true;
         body.velocity = Vector2.zero;
+    }
+
+    public void Fall()
+    {
+        this.GetComponent<TentaclePull>().enabled = false;
+        this.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }
