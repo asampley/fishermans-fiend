@@ -1,15 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
     private Vector2 tentacleAcceleration;
-    [SerializeField]
-    private float tentacleVelocityScale = 1f;
-
     public float strength = 1f;
 
     public Tentacle tentaclePrefab;
+
 
     void OnEnable()
     {
@@ -21,11 +20,17 @@ public class Player : MonoBehaviour
         InputManager.MouseDrag -= OnDrag;
     }
 
+
     void OnDrag(InputManager.MouseDragEvent ev)
     {
-        Vector2 velocity = (ev.mouseDown - ev.mouseUp) * this.tentacleVelocityScale;
+        
+        Vector2 velocity = Vector2.ClampMagnitude(
+            (ev.mouseDown - ev.mouseUp) * GameManager.Instance.TentacleVelocityScale,
+            GameManager.Instance.MaxTentacleLaunchStrength
+            );
+        Debug.Log(velocity.magnitude / 30);
         Vector2 position = ev.mouseDown;
-        position.y = this.transform.position.y;
+        position.y = this.transform.position.y;        
 
         SpawnTentacle(position, velocity);
     }

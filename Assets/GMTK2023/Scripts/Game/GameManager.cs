@@ -27,6 +27,13 @@ public class GameManager : MonoBehaviour
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
 
+    private float _maxTentacleLaunchStrength = 10f;
+    public float MaxTentacleLaunchStrength => _maxTentacleLaunchStrength;
+
+    private float _tentacleVelocityScale = 1f;
+    public float TentacleVelocityScale => _tentacleVelocityScale;
+
+
     public event Action FinishDay;
     public event Action LoseGame;
 
