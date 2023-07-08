@@ -8,4 +8,9 @@ public class EnemyManager : UnitManager, ICollidable
     {
 
     }
+
+    public void Collide(ProjectileManager projectile)
+    {
+
+    }
 }

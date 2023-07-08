@@ -8,4 +8,8 @@ public class ObstacleManager : UnitManager, ICollidable
     {
 
     }
+    public void Collide(ProjectileManager projectile)
+    {
+        _Damage(projectile.AttackDamage);
+    }
 }

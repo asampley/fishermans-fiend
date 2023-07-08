@@ -8,18 +8,22 @@ public class UnitManager : MonoBehaviour
     private Unit _unit;
     private bool _movesFromLeft;
     public float speedFactor = 1f;
+    private int _health;
+    private bool _initialized = false;
 
     public void Initialize(Unit unit, bool movesFromLeft)
     {
         _unit = unit;
+        _health = unit.Health;
         _movesFromLeft = movesFromLeft;
         _spriteRenderer.sprite = unit.Sprite;
         _spriteRenderer.flipX = !movesFromLeft;
+        _initialized = true;
     }
 
     private void Update()
     {
-        if (Mathf.Abs(speedFactor) <= 1e-6) return;
+        if (!_initialized || Mathf.Abs(speedFactor) <= 1e-6) return;
 
         Vector2 direction = _movesFromLeft ? Vector2.right : Vector2.left;
 
@@ -29,5 +33,20 @@ public class UnitManager : MonoBehaviour
         {
             GameObject.Destroy(this.gameObject);
         }
+    }
+
+    protected void _Damage(int amount)
+    {
+        Debug.Log("Running");
+        _health -= amount;
+        if (_health <= 0)
+        {
+            _Die();
+        }
+    }
+
+    protected void _Die()
+    {
+        Destroy(this.gameObject);
     }
 }

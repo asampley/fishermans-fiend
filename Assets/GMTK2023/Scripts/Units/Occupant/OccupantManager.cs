@@ -45,6 +45,11 @@ public class OccupantManager : MonoBehaviour, ICollidable
         _parent.CalculateSpeed();
     }
 
+    public void Collide(ProjectileManager projectile)
+    {
+        Debug.Log("Shot a guy, don't know if we want to do something about that");
+    }
+
     void OnLost()
     {
         _parent.CalculateSpeed();

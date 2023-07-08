@@ -9,5 +9,6 @@ public class UnitData : ScriptableObject
     public Sprite Sprite;
 
     public bool SpawnsBelowSurface;
-    public float Speed;
+    public int Health;
+    public float Speed;    
 }

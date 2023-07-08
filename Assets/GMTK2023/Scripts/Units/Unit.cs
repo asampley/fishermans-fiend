@@ -8,6 +8,8 @@ public class Unit
 
     protected Sprite _sprite;
     public Sprite Sprite => _sprite;
+    protected int _health;
+    public int Health => _health;
     protected float _speed;
     public float Speed => _speed;
 
@@ -19,6 +21,7 @@ public class Unit
 
         
         _sprite = data.Sprite;
+        _health = data.Health;
         _speed = data.Speed;
     }
 }

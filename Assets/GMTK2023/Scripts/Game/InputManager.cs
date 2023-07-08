@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     private Vector2 mouseDown;
 
+    public static event Action<AttackEvent> Attack;
     public static event Action<MouseDragEvent> MouseDrag;
 
     void OnEnable() {
@@ -33,6 +34,11 @@ public class InputManager : MonoBehaviour
                 (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition))
             );
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Attack?.Invoke(new(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+        }
     }
 
     public class MouseDragEvent
@@ -49,6 +55,16 @@ public class InputManager : MonoBehaviour
         public override string ToString()
         {
             return "{ mouseDown = " + mouseDown + ", mouseUp = " + mouseUp + "}";
+        }
+    }
+
+    public class AttackEvent
+    {
+        public Vector2 target;
+
+        public AttackEvent(Vector2 targetPos)
+        {
+            target = targetPos;
         }
     }
 
