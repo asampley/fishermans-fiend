@@ -11,6 +11,6 @@ public class Victim : Unit
     {
         _victimManager = _transform.GetComponent<VictimManager>();
 
-        _victimManager.Initialize(this, spawnsOnLeft, data.PotentialOccupants);
+        _victimManager.Initialize(this, data, spawnsOnLeft, data.PotentialOccupants);
     }
 }

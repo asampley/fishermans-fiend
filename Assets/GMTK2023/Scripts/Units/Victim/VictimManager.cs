@@ -8,10 +8,14 @@ public class VictimManager : UnitManager, ICollidable
 {
     [SerializeField] List<GameObject> _occupants;
 
+    private VictimData data;
+
     public event Action<VictimManager> Capsize;
 
-    public void Initialize(Victim victim, bool movesFromLeft, OccupantData[] occupantDatas)
+    public void Initialize(Victim victim, VictimData data, bool movesFromLeft, OccupantData[] occupantDatas)
     {
+        this.data = data;
+
         int numOccupants = UnityEngine.Random.Range(1, 4);
 
         for (int i = 0; i < numOccupants; i++)
@@ -72,5 +76,7 @@ public class VictimManager : UnitManager, ICollidable
     {
         manager.GetComponent<SpriteRenderer>().flipY = true;
         manager.GetComponent<Rigidbody2D>().isKinematic = false;
+        AudioManager.Instance.source.PlayOneShot(manager.data.falling.Rand());
+        AudioManager.Instance.source.PlayOneShot(manager.data.fall.Rand());
     }
 }

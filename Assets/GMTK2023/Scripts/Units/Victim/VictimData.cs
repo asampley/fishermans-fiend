@@ -8,4 +8,7 @@ public class VictimData : UnitData
 {
     public int VictimTypeId;
     public OccupantData[] PotentialOccupants;
+
+    public AudioSet falling;
+    public AudioSet fall;
 }
