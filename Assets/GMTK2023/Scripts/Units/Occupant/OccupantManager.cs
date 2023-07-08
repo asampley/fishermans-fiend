@@ -24,10 +24,5 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
         tentacle.Grab(this.gameObject);
         _parent.Stop();
-
-        var game = this.GetComponent<FishingGame>();
-        game.opponentStrength = tentacle.strength;
-        game.key = KeyCode.Alpha1;
-        game.enabled = true;
     }
 }
