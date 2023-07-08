@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class Globals
 {
     public static float X_EDGE = 10f;
@@ -18,7 +20,11 @@ public static class Globals
     public static float MIN_TIME_BETWEEN_ENEMY_SPAWNS = 10f;
     public static float MAX_TIME_BETWEEN_ENEMY_SPAWNS = 20f;
 
-
+    public static KeyCode[] KEYS =
+    {
+        KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4,
+        KeyCode.Q, KeyCode.W, KeyCode.E, KeyCode.R,
+    };
 
     public static DayData[] DAY_DATA;
     public static UpgradeData[] UPGRADE_DATA;

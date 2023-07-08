@@ -2,48 +2,87 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class FishingGame : MonoBehaviour
 {
-    public KeyCode key;
+    private static bool[] takenKeys = new bool[Globals.KEYS.Length];
+
+    private int key;
+    private KeyCode keyCode { get { return Globals.KEYS[key]; } }
 
     public float resistance;
     public float health;
 
-    public float opponentStrength;
+    public Tentacle tentacle { get; set; }
 
     private float resistanceProgress;
 
     private bool _press;
-    private bool press {
+    private bool press
+    {
         get { return _press; }
         set { _press = value; ShouldPull?.Invoke(value); }
     }
     private float secondsToSwitch;
 
+    public SpriteRenderer gameImage;
+    public TextMeshPro text;
+
     public event Action<bool> ShouldPull;
     public event Action Won;
     public event Action Lost;
 
+    void OnEnable()
+    {
+        for (int i = 0; i < takenKeys.Length; ++i)
+        {
+            if (!takenKeys[i])
+            {
+                takenKeys[i] = true;
+                this.key = i;
+                this.text.text = KeyToString(keyCode);
+                gameImage.gameObject.SetActive(true);
+                return;
+            }
+        }
+
+        // if we can't find a key throw an exception
+        throw new Exception("Unable to get a key for tentacle");
+    }
+
+    void OnDisable()
+    {
+        takenKeys[this.key] = false;
+        gameImage.gameObject.SetActive(false);
+    }
+
+    public static string KeyToString(KeyCode key)
+    {
+        return key.ToString().Replace("Alpha", null);
+    }
+
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (this.HasWon() || this.HasLost())
         {
+            this.enabled = false;
             return;
         }
 
-        bool pressed = Input.GetKey(key);
+        bool pressed = Input.GetKey(keyCode);
 
-        this.GetComponent<SpriteRenderer>().color = press ? Color.green : Color.red;
+        gameImage.color = press ? Color.green : Color.red;
 
         if (press && pressed)
         {
-            health -= opponentStrength * Time.fixedDeltaTime;
+            health -= GameManager.Instance.TentacleStrength * Time.deltaTime;
         }
         else if (press != pressed)
         {
-            resistanceProgress += Time.fixedDeltaTime * resistance;
+            resistanceProgress += Time.deltaTime * resistance;
         }
 
         if (this.HasWon())
@@ -56,7 +95,7 @@ public class FishingGame : MonoBehaviour
             Lost?.Invoke();
         }
 
-        secondsToSwitch -= Time.fixedDeltaTime;
+        secondsToSwitch -= Time.deltaTime;
 
         if (secondsToSwitch <= 0)
         {

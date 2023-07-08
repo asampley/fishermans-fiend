@@ -12,9 +12,9 @@ public class TentaclePull : MonoBehaviour
         var tentacle = this.GetComponent<Tentacle>();
 
         var game = target.GetComponent<FishingGame>();
-        game.opponentStrength = tentacle.strength;
-        game.key = KeyCode.Alpha1;
+        game.tentacle = tentacle;
         game.Lost += tentacle.Fall;
+        game.Won += tentacle.Fall;
         game.enabled = true;
     }
 
@@ -24,11 +24,18 @@ public class TentaclePull : MonoBehaviour
 
         var game = target.GetComponent<FishingGame>();
         game.Lost -= tentacle.Fall;
+        game.Won -= tentacle.Fall;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (target == null)
+        {
+            this.GetComponent<Tentacle>().Fall();
+            return;
+        }
+
         LineRenderer line = this.GetComponent<LineRenderer>();
 
         Vector3[] positions = new Vector3[line.positionCount];

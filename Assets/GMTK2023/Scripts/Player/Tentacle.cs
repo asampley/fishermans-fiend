@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Tentacle : MonoBehaviour
 {
-    public float strength;
-
     public void Grab(GameObject obj)
     {
         this.GetComponent<TentacleLaunch>().enabled = false;
