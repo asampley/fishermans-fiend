@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
 
     void OnDrag(InputManager.MouseDragEvent ev)
     {
-        
+        if (GameManager.Instance.GameIsPaused) return;
+
         Vector2 velocity = Vector2.ClampMagnitude(
             (ev.mouseDown - ev.mouseUp) * GameManager.Instance.TentacleVelocityScale,
             GameManager.Instance.MaxTentacleLaunchStrength

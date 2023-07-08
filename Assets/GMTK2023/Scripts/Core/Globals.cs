@@ -21,12 +21,14 @@ public static class Globals
 
 
     public static DayData[] DAY_DATA;
+    public static UpgradeData[] UPGRADE_DATA;
     public static EnemyData[] ENEMY_DATA;
     public static ObstacleData[] OBSTACLE_DATA;
     public static VictimData[] VICTIM_DATA;
 
 
     public static string DAY_DATA_FOLDER = "ScriptableObjects/DayData";
+    public static string UPGRADE_DATA_FOLDER = "ScriptableObjects/UpgradeData";
     public static string ENEMY_DATA_FOLDER = "ScriptableObjects/EnemyData";
     public static string OBSTACLE_DATA_FOLDER = "ScriptableObjects/ObstacleData";
     public static string VICTIM_DATA_FOLDER = "ScriptableObjects/VictimData";

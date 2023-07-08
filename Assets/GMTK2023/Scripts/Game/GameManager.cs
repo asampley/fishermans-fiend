@@ -27,16 +27,34 @@ public class GameManager : MonoBehaviour
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
 
-    private float _maxTentacleLaunchStrength = 10f;
+    //Upgradables
+    private float _attackStrength = 1f;
+    public float AttackStrength => _attackStrength;
+    private float _biomassMultiplier = 1f;
+    public float BiomassMultipier => _biomassMultiplier;
+    private float _maxTentacleLaunchStrength = 8f;
     public float MaxTentacleLaunchStrength => _maxTentacleLaunchStrength;
+    private int _maxTentacles = 1;
+    public int MaxTentacles => _maxTentacles;
 
     private float _tentacleVelocityScale = 1f;
     public float TentacleVelocityScale => _tentacleVelocityScale;
+    private bool _canPoisonDart = false;
+    public bool CanPoisonDart => _canPoisonDart;
+    private bool _canLaserBeam = false;
+    public bool CanLaserBeam => _canLaserBeam;
+    private bool _canInkPouch = false;
+    public bool CanInkPouch => _canInkPouch;
 
 
     public event Action FinishDay;
     public event Action LoseGame;
 
+
+    private void OnEnable()
+    {
+        EventManager.AddListener("SelectUpgrade", _OnSelectUpgrade);
+    }
 
     private void Awake()
     {
@@ -188,5 +206,36 @@ public class GameManager : MonoBehaviour
         {
             new Victim(data, spawnOnLeft, Globals.SURFACE_HEIGHT);
         }        
+    }
+
+    private void _OnSelectUpgrade(object data)
+    {
+        Upgrade upgrade = data as Upgrade;
+
+
+        switch (upgrade.Effect)
+        {
+            case UpgradeEffect.AddAttackStrength:
+                _attackStrength += upgrade.Amount;
+                break;
+            case UpgradeEffect.AddBiomassGainMultiplier:
+                _biomassMultiplier += upgrade.Amount;
+                break;
+            case UpgradeEffect.AddMaxTentacleLaunchVelocityStrength:
+                _maxTentacleLaunchStrength += upgrade.Amount;
+                break;
+            case UpgradeEffect.AddMaxTentacles:
+                _maxTentacles += (int)upgrade.Amount;
+                break;
+            case UpgradeEffect.EnablePoisonDartAttack:
+                _canPoisonDart = true;
+                break;
+            case UpgradeEffect.EnableLaserBeamAttack:
+                _canLaserBeam = true;
+                break;
+            case UpgradeEffect.EnableInkPouch:
+                _canInkPouch = true;
+                break;
+        }
     }
 }
