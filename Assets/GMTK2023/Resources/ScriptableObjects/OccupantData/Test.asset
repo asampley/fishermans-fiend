@@ -21,7 +21,8 @@ MonoBehaviour:
   Resistance: 0.33
   Health: 2
   fighting:
-    audios: []
+    audios:
+    - {fileID: 8300000, guid: 01cb968193b9ace409cc4bf6810841d7, type: 3}
   fall:
     audios:
     - {fileID: 8300000, guid: 08750ff0cec5ed1499d114cae54af74e, type: 3}
