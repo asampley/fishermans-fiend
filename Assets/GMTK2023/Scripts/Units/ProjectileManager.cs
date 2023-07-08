@@ -39,4 +39,9 @@ public class ProjectileManager : MonoBehaviour
 
         return n;
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.GetComponent<ICollidable>().Collide(this);
+    }
 }

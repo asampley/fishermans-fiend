@@ -29,6 +29,11 @@ public class VictimManager : UnitManager, ICollidable
 
     }
 
+    public void Collide(ProjectileManager projectile)
+    {
+
+    }
+
     public void CalculateSpeed()
     {
         int rowing = this._occupants.Where(o => o.GetComponent<OccupantManager>().IsRowing()).Count();
