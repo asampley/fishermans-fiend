@@ -12,4 +12,5 @@ public class DayData : ScriptableObject
     public VictimData[] VictimsToSpawn;
 
     public float SpawnCooldown;
+    public int RequiredBiomass;
 }

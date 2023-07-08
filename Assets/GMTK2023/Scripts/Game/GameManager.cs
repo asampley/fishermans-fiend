@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -25,6 +24,14 @@ public class GameManager : MonoBehaviour
 
     private int _currentBiomass;
     public int CurrentBiomass => _currentBiomass;
+    private int _currentAwareness;
+    public int CurrentAwareness => _currentAwareness;
+
+    public delegate void OnLoseGame();
+    public event OnLoseGame LoseGame;
+
+    public delegate void OnFinishDayGame();
+    public event OnFinishDayGame FinishDay;
 
 
     private void Awake()
@@ -67,10 +74,10 @@ public class GameManager : MonoBehaviour
         _spawnEnemyTimer += Time.deltaTime;
         if (_spawnEnemyTimer >= _nextEnemySpawn)
         {
-            EnemyData enemy = _currentDayData.EnemiesToSpawn[Random.Range(0, _currentDayData.EnemiesToSpawn.Length)];
+            EnemyData enemy = _currentDayData.EnemiesToSpawn[UnityEngine.Random.Range(0, _currentDayData.EnemiesToSpawn.Length)];
             _SpawnEnemy(enemy);
             _spawnEnemyTimer = 0f;
-            _nextEnemySpawn = Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown);
+            _nextEnemySpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown);
         }
     }
 
@@ -79,10 +86,10 @@ public class GameManager : MonoBehaviour
         _spawnObstacleTimer += Time.deltaTime;
         if (_spawnObstacleTimer >= _nextObstacleSpawn)
         {
-            ObstacleData obstacle = _currentDayData.ObstaclesToSpawn[Random.Range(0, _currentDayData.ObstaclesToSpawn.Length)];
+            ObstacleData obstacle = _currentDayData.ObstaclesToSpawn[UnityEngine.Random.Range(0, _currentDayData.ObstaclesToSpawn.Length)];
             _SpawnObstacle(obstacle);
             _spawnObstacleTimer = 0f;
-            _nextObstacleSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
+            _nextObstacleSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
         }
     }
 
@@ -92,10 +99,10 @@ public class GameManager : MonoBehaviour
         if (_spawnVictimTimer >= _nextVictimSpawn)
         {
             Debug.Log("Running");
-            VictimData Victim = _currentDayData.VictimsToSpawn[Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
+            VictimData Victim = _currentDayData.VictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
             _SpawnVictim(Victim);
             _spawnVictimTimer = 0f;
-            _nextVictimSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown);
+            _nextVictimSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown);
         }
     }
 
@@ -104,9 +111,9 @@ public class GameManager : MonoBehaviour
         _spawnEnemyTimer = 0f;
         _spawnObstacleTimer = 0f;
         _spawnVictimTimer = 0f;
-        _nextEnemySpawn = Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS);
-        _nextObstacleSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS);
-        _nextVictimSpawn = Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS);
+        _nextEnemySpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS);
+        _nextObstacleSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS);
+        _nextVictimSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS);
 
         _currentDay++;
         _currentDayData = Globals.DAY_DATA.Where((DayData x) => x.DayNumber == _currentDay).First();
@@ -125,15 +132,23 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Debug.Log("Day is over");
 
+        if (_currentBiomass >= _currentDayData.RequiredBiomass)
+        {
+            FinishDay();
+        }
+        else
+        {
+            LoseGame();
+        }
     }
 
     private void _SpawnEnemy(EnemyData data)
     {
-        bool spawnOnLeft = Random.Range(0, 2) == 0;
+        bool spawnOnLeft = UnityEngine.Random.Range(0, 2) == 0;
 
         if (data.SpawnsBelowSurface)
         {
-            float height = Random.Range(Globals.Y_MIN, Globals.Y_MAX);
+            float height = UnityEngine.Random.Range(Globals.Y_MIN, Globals.Y_MAX);
             new Enemy(data, spawnOnLeft, height);
         }
         else
@@ -144,11 +159,11 @@ public class GameManager : MonoBehaviour
 
     private void _SpawnObstacle(ObstacleData data)
     {
-        bool spawnOnLeft = Random.Range(0, 2) == 0;
+        bool spawnOnLeft = UnityEngine.Random.Range(0, 2) == 0;
 
         if (data.SpawnsBelowSurface)
         {
-            float height = Random.Range(Globals.Y_MIN, Globals.Y_MAX);
+            float height = UnityEngine.Random.Range(Globals.Y_MIN, Globals.Y_MAX);
             new Obstacle(data, spawnOnLeft, height);
         }
         else
@@ -158,11 +173,11 @@ public class GameManager : MonoBehaviour
     }
     private void _SpawnVictim(VictimData data)
     {
-        bool spawnOnLeft = Random.Range(0, 2) == 0;
+        bool spawnOnLeft = UnityEngine.Random.Range(0, 2) == 0;
 
         if (data.SpawnsBelowSurface)
         {
-            float height = Random.Range(Globals.Y_MIN, Globals.Y_MAX);
+            float height = UnityEngine.Random.Range(Globals.Y_MIN, Globals.Y_MAX);
             new Victim(data, spawnOnLeft, height);
         }
         else
