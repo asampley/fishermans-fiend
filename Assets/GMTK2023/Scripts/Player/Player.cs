@@ -27,10 +27,8 @@ public class Player : MonoBehaviour
             (ev.mouseDown - ev.mouseUp) * GameManager.Instance.TentacleVelocityScale,
             GameManager.Instance.MaxTentacleLaunchStrength
             );
-        Vector2 position = ev.mouseDown;
-        position.y = this.transform.position.y;
 
-        SpawnTentacle(position, velocity);
+        SpawnTentacle(this.transform.position, velocity);
     }
 
     public void SpawnTentacle(Vector2 position, Vector2 velocity)
