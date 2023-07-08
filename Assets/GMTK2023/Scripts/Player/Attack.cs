@@ -24,7 +24,6 @@ public class Attack : MonoBehaviour
     {
         GameObject g = Instantiate(_poisonDartPrefab, _attackStartPos);
         g.transform.position = _attackStartPos.position;
-        Debug.Log(ev.target);
         g.GetComponent<ProjectileManager>().Initialize(ev.target, 10, 10f);
     }
 }

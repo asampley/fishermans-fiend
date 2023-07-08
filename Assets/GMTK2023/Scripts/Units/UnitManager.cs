@@ -37,7 +37,6 @@ public class UnitManager : MonoBehaviour
 
     protected void _Damage(int amount)
     {
-        Debug.Log("Running");
         _health -= amount;
         if (_health <= 0)
         {
