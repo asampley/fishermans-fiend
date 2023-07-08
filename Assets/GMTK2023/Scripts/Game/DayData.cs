@@ -7,9 +7,13 @@ using UnityEngine;
 public class DayData : ScriptableObject
 {
     public int DayNumber;
-    public EnemyData[] EnemiesToSpawn;
-    public ObstacleData[] ObstaclesToSpawn;
-    public VictimData[] VictimsToSpawn;
+    public EnemyData[] DayEnemiesToSpawn;
+    public ObstacleData[] DayObstaclesToSpawn;
+    public VictimData[] DayVictimsToSpawn;
+
+    public EnemyData[] NightEnemiesToSpawn;
+    public ObstacleData[] NightObstaclesToSpawn;
+    public VictimData[] NightVictimsToSpawn;
 
     public float SpawnCooldown;
     public int RequiredBiomass;

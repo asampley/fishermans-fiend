@@ -81,15 +81,18 @@ public class GameManager : MonoBehaviour
     {
         if (_gameIsPaused) return;
 
-        if (_currentDayData.EnemiesToSpawn.Length > 0)
+        if (!_isNight && _currentDayData.DayEnemiesToSpawn.Length > 0
+            || _isNight && _currentDayData.NightEnemiesToSpawn.Length > 0)
         {
-            _CheckEnemySpawn();
+            _CheckEnemySpawn(); 
         }
-        if (_currentDayData.ObstaclesToSpawn.Length > 0)
+        if (!_isNight && _currentDayData.DayObstaclesToSpawn.Length > 0
+            || _isNight && _currentDayData.NightObstaclesToSpawn.Length > 0)
         {
             _CheckObstacleSpawn();
         }
-        if (_currentDayData.VictimsToSpawn.Length > 0)
+        if (!_isNight && _currentDayData.DayVictimsToSpawn.Length > 0
+            || _isNight && _currentDayData.NightVictimsToSpawn.Length > 0) 
         {
             _CheckVictimSpawn();
         }
@@ -105,7 +108,8 @@ public class GameManager : MonoBehaviour
         _spawnEnemyTimer += Time.deltaTime;
         if (_spawnEnemyTimer >= _nextEnemySpawn)
         {
-            EnemyData enemy = _currentDayData.EnemiesToSpawn[UnityEngine.Random.Range(0, _currentDayData.EnemiesToSpawn.Length)];
+            EnemyData enemy = _isNight ? _currentDayData.NightEnemiesToSpawn[UnityEngine.Random.Range(0, _currentDayData.NightEnemiesToSpawn.Length)] :
+                _currentDayData.DayEnemiesToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayEnemiesToSpawn.Length)];
             _SpawnEnemy(enemy);
             _spawnEnemyTimer = 0f;
             _nextEnemySpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown);
@@ -117,7 +121,8 @@ public class GameManager : MonoBehaviour
         _spawnObstacleTimer += Time.deltaTime;
         if (_spawnObstacleTimer >= _nextObstacleSpawn)
         {
-            ObstacleData obstacle = _currentDayData.ObstaclesToSpawn[UnityEngine.Random.Range(0, _currentDayData.ObstaclesToSpawn.Length)];
+            ObstacleData obstacle = _isNight ? _currentDayData.NightObstaclesToSpawn[UnityEngine.Random.Range(0, _currentDayData.NightObstaclesToSpawn.Length)] :
+                _currentDayData.DayObstaclesToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayObstaclesToSpawn.Length)];
             _SpawnObstacle(obstacle);
             _spawnObstacleTimer = 0f;
             _nextObstacleSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
@@ -129,7 +134,8 @@ public class GameManager : MonoBehaviour
         _spawnVictimTimer += Time.deltaTime;
         if (_spawnVictimTimer >= _nextVictimSpawn)
         {
-            VictimData victim = _currentDayData.VictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.VictimsToSpawn.Length)];
+            VictimData victim = _isNight ? _currentDayData.NightVictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.NightVictimsToSpawn.Length)] :
+                _currentDayData.DayVictimsToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayVictimsToSpawn.Length)];
             _SpawnVictim(victim);
             _spawnVictimTimer = 0f;
             _nextVictimSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_VICTIM_SPAWNS + _currentDayData.SpawnCooldown);
@@ -172,7 +178,6 @@ public class GameManager : MonoBehaviour
     {
         _isNight = true;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _moonSprite;
-        Debug.Log("It is night time");
     }
 
     private void _EndDay()
