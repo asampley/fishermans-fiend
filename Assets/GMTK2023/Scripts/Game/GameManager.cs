@@ -211,31 +211,42 @@ public class GameManager : MonoBehaviour
     private void _OnSelectUpgrade(object data)
     {
         Upgrade upgrade = data as Upgrade;
+        _currentBiomass = 50;
 
-
-        switch (upgrade.Effect)
+        if (_currentBiomass < upgrade.Cost)
         {
-            case UpgradeEffect.AddAttackStrength:
-                _attackStrength += upgrade.Amount;
-                break;
-            case UpgradeEffect.AddBiomassGainMultiplier:
-                _biomassMultiplier += upgrade.Amount;
-                break;
-            case UpgradeEffect.AddMaxTentacleLaunchVelocityStrength:
-                _maxTentacleLaunchStrength += upgrade.Amount;
-                break;
-            case UpgradeEffect.AddMaxTentacles:
-                _maxTentacles += (int)upgrade.Amount;
-                break;
-            case UpgradeEffect.EnablePoisonDartAttack:
-                _canPoisonDart = true;
-                break;
-            case UpgradeEffect.EnableLaserBeamAttack:
-                _canLaserBeam = true;
-                break;
-            case UpgradeEffect.EnableInkPouch:
-                _canInkPouch = true;
-                break;
+            Debug.Log("Too Poor");
+        }
+        else
+        {
+            _currentBiomass -= upgrade.Cost;
+
+            switch (upgrade.Effect)
+            {
+                case UpgradeEffect.AddAttackStrength:
+                    _attackStrength += upgrade.Amount;
+                    break;
+                case UpgradeEffect.AddBiomassGainMultiplier:
+                    _biomassMultiplier += upgrade.Amount;
+                    break;
+                case UpgradeEffect.AddMaxTentacleLaunchVelocityStrength:
+                    _maxTentacleLaunchStrength += upgrade.Amount;
+                    break;
+                case UpgradeEffect.AddMaxTentacles:
+                    _maxTentacles += (int)upgrade.Amount;
+                    break;
+                case UpgradeEffect.EnablePoisonDartAttack:
+                    _canPoisonDart = true;
+                    break;
+                case UpgradeEffect.EnableLaserBeamAttack:
+                    _canLaserBeam = true;
+                    break;
+                case UpgradeEffect.EnableInkPouch:
+                    _canInkPouch = true;
+                    break;
+            }
+
+            EventManager.TriggerEvent("SuccessfullyBuyUpgrade", upgrade);
         }
     }
 }

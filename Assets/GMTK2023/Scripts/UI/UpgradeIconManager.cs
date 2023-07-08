@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class UpgradeIconManager : MonoBehaviour
+
+public class UpgradeIconManager : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     private Image _image;
@@ -16,14 +18,16 @@ public class UpgradeIconManager : MonoBehaviour
     private Upgrade _upgrade;
 
 
-    private void OnMouseDown()
+
+    public void OnPointerDown(PointerEventData data)
     {
         EventManager.TriggerEvent("SelectUpgrade", _upgrade);
+        Debug.Log("Working");
     }
 
     public void Initialize(UpgradeData data)
     {
-        _upgrade = new(data.Effect, data.Amount, data.Cost);
+        _upgrade = new(data, data.Effect, data.Amount, data.Cost);
         _titleText.text = data.Title;
         _costText.text = data.Cost.ToString();
         _image.sprite = data.Icon;
