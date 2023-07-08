@@ -27,11 +27,8 @@ public class GameManager : MonoBehaviour
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
 
-    public delegate void OnLoseGame();
-    public event OnLoseGame LoseGame;
-
-    public delegate void OnFinishDayGame();
-    public event OnFinishDayGame FinishDay;
+    public event Action FinishDay;
+    public event Action LoseGame;
 
 
     private void Awake()
@@ -134,11 +131,11 @@ public class GameManager : MonoBehaviour
 
         if (_currentBiomass >= _currentDayData.RequiredBiomass)
         {
-            FinishDay();
+            FinishDay?.Invoke();
         }
         else
         {
-            LoseGame();
+            LoseGame?.Invoke();
         }
     }
 
