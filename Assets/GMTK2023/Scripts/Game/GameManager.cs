@@ -23,9 +23,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private SpriteRenderer _skyObject;
     [SerializeField]
+    private Light _lightObject;
+    [SerializeField]
     private Sprite _skyDaySprite;
     [SerializeField]
     private Sprite _skyNightSprite;
+    [SerializeField]
+    private Color _waterDayColor;
+    [SerializeField]
+    private Color _waterNightColor;
+
 
     [SerializeField]
     private AudioClip _playerHurtClip;
@@ -175,6 +182,8 @@ public class GameManager : MonoBehaviour
         _dayTimer = 0f;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _sunSprite;
         _skyObject.sprite = _skyDaySprite;
+        _lightObject.enabled = true;
+        Camera.main.backgroundColor = _waterDayColor;
     }
 
     private void _UpdateSunObject()
@@ -198,6 +207,8 @@ public class GameManager : MonoBehaviour
     {
         _isNight = true;
         _skyObject.sprite = _skyNightSprite;
+        _lightObject.enabled = false;
+        Camera.main.backgroundColor = _waterNightColor;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _moonSprite;
     }
 
