@@ -319,7 +319,7 @@ public class GameManager : MonoBehaviour
         int amount = (int)data;
 
         _currentAwareness += amount;
-        Debug.Log(_currentAwareness);
+        EventManager.TriggerEvent("UpdateAwareness", _currentAwareness);
     }
 
     public void AddBiomass(int amount)
