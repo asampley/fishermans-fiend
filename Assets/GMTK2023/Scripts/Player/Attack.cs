@@ -23,6 +23,8 @@ public class Attack : MonoBehaviour
     private void _OnAttack(InputManager.AttackEvent ev)
     {
         GameObject g = Instantiate(_poisonDartPrefab, _attackStartPos);
+        g.transform.position = _attackStartPos.position;
+        Debug.Log(ev.target);
         g.GetComponent<ProjectileManager>().Initialize(ev.target);
     }
 }
