@@ -120,8 +120,8 @@ public class GameManager : MonoBehaviour
                 _currentDayData.DayEnemiesToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayEnemiesToSpawn.Length)];
             _SpawnEnemy(enemy);
             _spawnEnemyTimer = 0f;
-            _nextEnemySpawn = UnityEngine.Random.Range((Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult,
-                (Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult);
+            _nextEnemySpawn = UnityEngine.Random.Range(Mathf.Max(3, (Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult),
+                Mathf.Max(3, (Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult));
         }
     }
 
@@ -134,7 +134,8 @@ public class GameManager : MonoBehaviour
                 _currentDayData.DayObstaclesToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayObstaclesToSpawn.Length)];
             _SpawnObstacle(obstacle);
             _spawnObstacleTimer = 0f;
-            _nextObstacleSpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown);
+            _nextObstacleSpawn = UnityEngine.Random.Range(Mathf.Max(3, Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown * AwarenessMult),
+                Mathf.Max(3, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult);
         }
     }
 
@@ -302,6 +303,8 @@ public class GameManager : MonoBehaviour
 
     private void _OnIncreaseAwareness(object data)
     {
+        if (_isNight) return;
+
         int amount = (int)data;
 
         _currentAwareness += amount;

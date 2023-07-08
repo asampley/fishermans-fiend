@@ -47,7 +47,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
     public void Collide(ProjectileManager projectile)
     {
-        Debug.Log("Shot a guy, don't know if we want to do something about that");
+
     }
 
     void OnLost()
