@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Enemy : Unit
 {
+    protected int _attackDamage;
+    public int AttackDamage => _attackDamage;
 
-    public Enemy(UnitData data, bool spawnsOnLeft, float spawnHeight) : base(data, spawnsOnLeft, spawnHeight)
+    protected EnemyManager _enemyManager;
+    public Enemy(EnemyData data, bool spawnsOnLeft, float spawnHeight) : base(data, spawnsOnLeft, spawnHeight)
     {
+        _attackDamage = data.AttackDamage;
+        _enemyManager = _transform.GetComponent<EnemyManager>();
 
+        _enemyManager.Initialize(this, spawnsOnLeft);
     }
 }

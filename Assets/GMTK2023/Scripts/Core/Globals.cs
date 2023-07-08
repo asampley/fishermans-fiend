@@ -15,8 +15,8 @@ public static class Globals
     public static float MIN_TIME_BETWEEN_VICTIM_SPAWNS = 3f;
     public static float MAX_TIME_BETWEEN_VICTIM_SPAWNS = 7f;
 
-    public static float MIN_TIME_BETWEEN_OBSTACLE_SPAWNS = 1f;
-    public static float MAX_TIME_BETWEEN_OBSTACLE_SPAWNS = 2f;
+    public static float MIN_TIME_BETWEEN_OBSTACLE_SPAWNS = 3f;
+    public static float MAX_TIME_BETWEEN_OBSTACLE_SPAWNS = 6f;
 
     public static float MIN_TIME_BETWEEN_ENEMY_SPAWNS = 10f;
     public static float MAX_TIME_BETWEEN_ENEMY_SPAWNS = 20f;

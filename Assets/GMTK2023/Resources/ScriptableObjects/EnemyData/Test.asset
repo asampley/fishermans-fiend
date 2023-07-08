@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0431bf7f6a39cfd4bba3bef1e06d4c7c, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
-  Sprite: {fileID: 0}
-  Speed: 0
+  Prefab: {fileID: 4177565170746423647, guid: c2475369ba96b294fa8d3e03cdbc3913, type: 3}
+  Sprite: {fileID: 21300000, guid: 9a2db86ef28e1ca4fa053589aac61710, type: 3}
+  SpawnsBelowSurface: 1
+  Health: 10
+  Speed: 2
   EnemyTypeId: 0
+  AttackDamage: 5

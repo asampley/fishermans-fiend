@@ -7,4 +7,5 @@ using UnityEngine;
 public class EnemyData : UnitData
 {
     public int EnemyTypeId;
+    public int AttackDamage;
 }
