@@ -14,4 +14,8 @@ public class OccupantData : ScriptableObject
     public int Biomass;
     public float Resistance;
     public float Health;
+
+    public AudioSet fighting;
+    public AudioSet fall;
+    public AudioSet falling;
 }
