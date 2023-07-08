@@ -7,6 +7,7 @@ using UnityEngine;
 public class VictimManager : UnitManager, ICollidable
 {
     [SerializeField] List<GameObject> _occupants;
+    private bool _hasSeenHorror;
 
     private VictimData data;
 
@@ -37,18 +38,23 @@ public class VictimManager : UnitManager, ICollidable
     {
         foreach (GameObject occupant in _occupants)
         {
+            if (_hasSeenHorror)
+            {
+                EventManager.TriggerEvent("IncreaseAwareness", 5);
+            }
             occupant.GetComponent<OccupantManager>().Fall -= this.RemoveOccupant;
         }
     }
 
     public void Collide(Tentacle tentacle)
     {
-
+        tentacle.Blocked();
+        EventManager.TriggerEvent("IncreaseAwareness", 1);
     }
 
     public void Collide(ProjectileManager projectile)
     {
-
+        EventManager.TriggerEvent("IncreaseAwareness", 5);
     }
 
     public void CalculateSpeed()
@@ -62,6 +68,7 @@ public class VictimManager : UnitManager, ICollidable
         _occupants.Remove(occupant.gameObject);
         this.CalculateSpeed();
         this.CheckCapsize();
+        _hasSeenHorror = true;
     }
 
     public void CheckCapsize()

@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public int CurrentBiomass => _currentBiomass;
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
+    public float AwarenessMult => Mathf.Max(0.1f, (100 - _currentAwareness) / 100);
 
     //Upgradables
     private float _attackStrength = 1f;
@@ -62,6 +63,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.AddListener("SelectUpgrade", _OnSelectUpgrade);
+        EventManager.AddListener("IncreaseAwareness", _OnIncreaseAwareness);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.RemoveListener("SelectUpgrade", _OnSelectUpgrade);
+        EventManager.RemoveListener("IncreaseAwareness", _OnIncreaseAwareness);
     }
 
     private void Awake()
@@ -112,7 +120,8 @@ public class GameManager : MonoBehaviour
                 _currentDayData.DayEnemiesToSpawn[UnityEngine.Random.Range(0, _currentDayData.DayEnemiesToSpawn.Length)];
             _SpawnEnemy(enemy);
             _spawnEnemyTimer = 0f;
-            _nextEnemySpawn = UnityEngine.Random.Range(Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown, Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown);
+            _nextEnemySpawn = UnityEngine.Random.Range((Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult,
+                (Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult);
         }
     }
 
@@ -289,5 +298,13 @@ public class GameManager : MonoBehaviour
         {
             LoseGame?.Invoke();
         }
+    }
+
+    private void _OnIncreaseAwareness(object data)
+    {
+        int amount = (int)data;
+
+        _currentAwareness += amount;
+        Debug.Log(_currentAwareness);
     }
 }
