@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fb5f0c1726b11429122eb0d59f914d, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
-  Sprite: {fileID: 0}
-  Speed: 0
+  Prefab: {fileID: 4177565170746423647, guid: 2081acd827d4e20409cd3f71b0efe798, type: 3}
+  Sprite: {fileID: 21300000, guid: 73ae4a71229d2d24c96f8e96d2386d09, type: 3}
+  SpawnsBelowSurface: 1
+  Health: 10
+  Speed: 3
   ObstacleTypeId: 0

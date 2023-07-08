@@ -9,6 +9,9 @@ public class ProjectileManager : MonoBehaviour
     private Rigidbody2D _rigidBody;
     [SerializeField]
     private float _speed = 10f;
+
+    private int _attackDamage;
+    public int AttackDamage => _attackDamage;
     private Vector2 _travelDirection;
 
 
@@ -18,8 +21,11 @@ public class ProjectileManager : MonoBehaviour
     }
 
 
-    public void Initialize(Vector2 target)
+    public void Initialize(Vector2 target, int attackDamage, float speed)
     {
+        _attackDamage = attackDamage;
+        _speed = speed;
+
         float initAngle = Mathf.Atan2(target.y - transform.position.y, target.x - transform.position.x) * Mathf.Rad2Deg;
         float distance = Vector2.Distance(transform.position, target);
         float newAngleRad = -(initAngle - 90) * Mathf.Deg2Rad;
