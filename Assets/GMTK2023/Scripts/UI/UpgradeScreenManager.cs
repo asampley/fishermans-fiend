@@ -35,7 +35,6 @@ public class UpgradeScreenManager : MonoBehaviour
 
     private void _PopulateList()
     {
-        Debug.Log("Running");
         foreach (Transform child in _upgradeParent)
         {
             Destroy(child.gameObject);
@@ -54,7 +53,6 @@ public class UpgradeScreenManager : MonoBehaviour
     private void _OnSuccessBuy(object data)
     {
         Upgrade upgrade = data as Upgrade;
-        Debug.Log(upgrade.Effect);
         _hasPurchasedList[upgrade.Data] = true;
 
         _PopulateList();

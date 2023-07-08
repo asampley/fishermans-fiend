@@ -22,7 +22,6 @@ public class UpgradeIconManager : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData data)
     {
         EventManager.TriggerEvent("SelectUpgrade", _upgrade);
-        Debug.Log("Working");
     }
 
     public void Initialize(UpgradeData data)
