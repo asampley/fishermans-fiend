@@ -21,6 +21,6 @@ public class CaughtManager : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData data)
     {
-
+        EventManager.TriggerEvent("OpenPiscatoriaryEntry", _data);
     }
 }

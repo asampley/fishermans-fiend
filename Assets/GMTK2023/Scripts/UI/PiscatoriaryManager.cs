@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PiscatoriaryManager : MonoBehaviour
 {
@@ -9,7 +11,19 @@ public class PiscatoriaryManager : MonoBehaviour
     [SerializeField]
     private Transform _listParent;
     [SerializeField]
+    private Transform _listContentParent;
+    [SerializeField]
     private Transform _entryParent;
+    [SerializeField]
+    private TextMeshProUGUI _entryNameText;
+
+    [SerializeField]
+    private Image _entryImage;
+    [SerializeField]
+    private TextMeshProUGUI _entryDescText;
+
+
+
     [SerializeField]
     private GameObject _uncaughtPrefab;
     [SerializeField]
@@ -22,18 +36,23 @@ public class PiscatoriaryManager : MonoBehaviour
 
     private void OnEnable()
     {
+        EventManager.AddListener("TogglePiscatoriary", _OnTogglePiscatoriary);
         EventManager.AddListener("CaughtOccupant", _OnCaughtOccupant);
+        EventManager.AddListener("OpenPiscatoriaryEntry", _OnOpenEntry);
     }
     private void OnDisable()
     {
+        EventManager.RemoveListener("TogglePiscatoriary", _OnTogglePiscatoriary);
         EventManager.RemoveListener("CaughtOccupant", _OnCaughtOccupant);
+        EventManager.RemoveListener("OpenPiscatoriaryEntry", _OnOpenEntry);
+
     }
 
     private void Awake()
     {
         foreach (OccupantData data in Globals.OCCUPANT_DATA)
         {
-            _hasBeenCaughtDict.Add(data, false);
+            _hasBeenCaughtDict.Add(data, true);
         }
 
         _RefreshOccupantData();
@@ -52,7 +71,7 @@ public class PiscatoriaryManager : MonoBehaviour
 
     private void _RefreshOccupantData()
     {
-        foreach (Transform child in _parent)
+        foreach (Transform child in _listContentParent)
         {
             Destroy(child.gameObject);
         }
@@ -65,14 +84,32 @@ public class PiscatoriaryManager : MonoBehaviour
             }
             else
             {
-                Instantiate(_uncaughtPrefab, _parent);
+                Instantiate(_uncaughtPrefab, _listContentParent);
             }
         }
     }
 
     private void _GenerateEntryButton(OccupantData data)
     {
-        GameObject g = Instantiate(_caughtPrefab, _parent);
+        GameObject g = Instantiate(_caughtPrefab, _listContentParent);
         g.GetComponent<CaughtManager>().Initialize(data);
+    }
+
+    private void _OnOpenEntry(object data)
+    {
+        OccupantData occupantData = data as OccupantData;
+
+        _listParent.gameObject.SetActive(false);
+        _entryParent.gameObject.SetActive(true);
+
+        _entryNameText.text = occupantData.Name;
+        _entryImage.sprite = occupantData.Sprite;
+        _entryDescText.text = occupantData.Desc;
+    }
+
+    private void _OnTogglePiscatoriary()
+    {
+        Debug.Log("running");
+        _parent.gameObject.SetActive(!_parent.gameObject.activeInHierarchy);
     }
 }
