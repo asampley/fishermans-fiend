@@ -302,6 +302,8 @@ public class GameManager : MonoBehaviour
 
     private void _OnIncreaseAwareness(object data)
     {
+        if (_isNight) return;
+
         int amount = (int)data;
 
         _currentAwareness += amount;
