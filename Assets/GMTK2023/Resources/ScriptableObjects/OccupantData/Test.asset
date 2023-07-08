@@ -17,3 +17,5 @@ MonoBehaviour:
   Desc: A basic dude.
   Rarity: 0
   Biomass: 0
+  Resistance: 0.25
+  Health: 5
