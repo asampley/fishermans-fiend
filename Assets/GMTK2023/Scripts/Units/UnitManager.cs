@@ -5,11 +5,11 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer _spriteRenderer;
-    private Unit _unit;
-    private bool _movesFromLeft;
+    protected Unit _unit;
+    protected bool _movesFromLeft;
     public float speedFactor = 1f;
-    private int _health;
-    private bool _initialized = false;
+    protected int _health;
+    protected bool _initialized = false;
 
     public void Initialize(Unit unit, bool movesFromLeft)
     {

@@ -23,4 +23,12 @@ public class Tentacle : MonoBehaviour
         this.GetComponent<TentaclePull>().enabled = false;
         this.GetComponent<Rigidbody2D>().isKinematic = false;
     }
+
+    public void Blocked()
+    {
+        var body = this.GetComponent<Rigidbody2D>();
+        body.velocity = Vector2.zero;
+        Fall();
+        this.GetComponent<TentacleLaunch>().acceleration = new(0, -69);
+    }
 }

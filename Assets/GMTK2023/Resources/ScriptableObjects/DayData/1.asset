@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   DayNumber: 1
-  EnemiesToSpawn: []
-  ObstaclesToSpawn:
+  DayEnemiesToSpawn: []
+  DayObstaclesToSpawn:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
-  VictimsToSpawn:
+  DayVictimsToSpawn:
+  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
+  NightEnemiesToSpawn: []
+  NightObstaclesToSpawn:
+  - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
+  NightVictimsToSpawn:
   - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
   SpawnCooldown: 5
-  RequiredBiomass: 0
+  RequiredBiomass: 1000

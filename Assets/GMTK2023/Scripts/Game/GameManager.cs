@@ -281,4 +281,13 @@ public class GameManager : MonoBehaviour
             EventManager.TriggerEvent("SuccessfullyBuyUpgrade", upgrade);
         }
     }
+
+    public void PlayerTakeDamage(int amount)
+    {
+        _currentBiomass -= amount;
+        if (_currentBiomass <= 0)
+        {
+            LoseGame?.Invoke();
+        }
+    }
 }
