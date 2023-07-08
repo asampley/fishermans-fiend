@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   DayNumber: 1
-  DayEnemiesToSpawn: []
+  DayEnemiesToSpawn:
+  - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
   DayObstaclesToSpawn:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
   DayVictimsToSpawn:
