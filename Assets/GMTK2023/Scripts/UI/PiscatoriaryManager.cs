@@ -52,7 +52,7 @@ public class PiscatoriaryManager : MonoBehaviour
     {
         foreach (OccupantData data in Globals.OCCUPANT_DATA)
         {
-            _hasBeenCaughtDict.Add(data, true);
+            _hasBeenCaughtDict.Add(data, false);
         }
 
         _RefreshOccupantData();
