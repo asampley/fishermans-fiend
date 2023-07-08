@@ -10,6 +10,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Collider2D _collider;
     [SerializeField] FishingGame _fishingGame;
+    [SerializeField] SpriteRenderer _fishingRod;
     private bool _isCollided = false;
     private VictimManager _parent;
 
@@ -54,6 +55,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
     void OnLost()
     {
         _parent.CalculateSpeed();
+        _fishingRod.enabled = false;
         AudioManager.Instance?.source.PlayOneShot(data.fall.Rand());
     }
 
