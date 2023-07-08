@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b714651f130511645a8717836a4fe0df, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  DayNumber: 2
+  DayEnemiesToSpawn:
+  - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
+  DayObstaclesToSpawn:
+  - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
+  DayVictimsToSpawn:
+  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
+  NightEnemiesToSpawn: []
+  NightObstaclesToSpawn:
+  - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
+  NightVictimsToSpawn:
+  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
+  SpawnCooldown: 5
+  RequiredBiomass: 1000
