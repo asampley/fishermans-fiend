@@ -302,6 +302,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayerDefeatOccupant(OccupantManager occupant)
+    {
+        AddBiomass(occupant.data.Biomass);
+    }
+
     public void PlayerTakeDamage(int amount)
     {
         AddBiomass(-amount);

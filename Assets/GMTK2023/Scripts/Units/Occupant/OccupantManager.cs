@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OccupantManager : MonoBehaviour, ICollidable
 {
-    private OccupantData data;
+    public OccupantData data { get; private set; }
 
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Collider2D _collider;
@@ -59,7 +59,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
     void OnWon()
     {
-        GameManager.Instance.AddBiomass(data.Biomass);
+        GameManager.Instance.PlayerDefeatOccupant(this);
         this.transform.SetParent(_fishingGame.tentacle.transform);
         this.Fall?.Invoke(this);
         AudioManager.Instance?.source.PlayOneShot(data.fall.Rand());
