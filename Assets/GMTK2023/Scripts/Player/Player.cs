@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ public class Player : MonoBehaviour
     private Vector2 tentacleAcceleration;
 
     public Tentacle tentaclePrefab;
+
+    private List<Tentacle> tentacles = new();
 
     void OnEnable()
     {
@@ -18,10 +21,17 @@ public class Player : MonoBehaviour
         InputManager.MouseDrag -= OnDrag;
     }
 
+    void Update()
+    {
+        // check if any tentacles have gone
+        tentacles.RemoveAll(t => t == null);
+    }
 
     void OnDrag(InputManager.MouseDragEvent ev)
     {
         if (GameManager.Instance.GameIsPaused) return;
+
+        if (tentacles.Count >= GameManager.Instance.MaxTentacles) return;
 
         Vector2 velocity = Vector2.ClampMagnitude(
             (ev.mouseDown - ev.mouseUp) * GameManager.Instance.TentacleVelocityScale,
@@ -40,5 +50,7 @@ public class Player : MonoBehaviour
         TentacleLaunch launch = obj.GetComponent<TentacleLaunch>();
         launch.velocity = velocity;
         launch.acceleration = this.tentacleAcceleration;
+
+        tentacles.Add(tentacle);
     }
 }

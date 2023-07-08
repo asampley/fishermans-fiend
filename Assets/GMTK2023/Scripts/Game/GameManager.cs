@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private Sprite _sunSprite;
     [SerializeField]
     private Sprite _moonSprite;
+    [SerializeField]
+    private AudioClip _playerHurtClip;
 
     private float _spawnEnemyTimer;
     private float _spawnObstacleTimer;
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     public float BiomassMultipier => _biomassMultiplier;
     private float _maxTentacleLaunchStrength = 10f;
     public float MaxTentacleLaunchStrength => _maxTentacleLaunchStrength;
-    private int _maxTentacles = 1;
+    private int _maxTentacles = 3;
     public int MaxTentacles => _maxTentacles;
     private float _tentactleStrength = 1f;
     public float TentacleStrength => _tentactleStrength;
@@ -295,6 +297,7 @@ public class GameManager : MonoBehaviour
     public void PlayerTakeDamage(int amount)
     {
         _currentBiomass -= amount;
+        AudioManager.Instance.source.PlayOneShot(_playerHurtClip);
         if (_currentBiomass <= 0)
         {
             LoseGame?.Invoke();

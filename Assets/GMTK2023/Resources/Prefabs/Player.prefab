@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8346595149759257407}
   - component: {fileID: -5779443023613625298}
+  - component: {fileID: 7716237402231772980}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -45,5 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tentacleAcceleration: {x: 0, y: -5}
-  tentacleVelocityScale: 1
   tentaclePrefab: {fileID: 5615743133353160342, guid: 0b6c8d74fcd7ead4997ea95c302d89a4, type: 3}
+--- !u!114 &7716237402231772980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534263679454660812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244bf420604655e4294d3074cf66be39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackStartPos: {fileID: 0}
+  _poisonDartPrefab: {fileID: 7549370184750660555, guid: 6b166b3ad99e60d45b69b21a37ef6f69, type: 3}
