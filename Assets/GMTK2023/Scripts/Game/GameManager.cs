@@ -53,6 +53,10 @@ public class GameManager : MonoBehaviour
     //Upgradables
     private float _attackStrength = 1f;
     public float AttackStrength => _attackStrength;
+
+    private float _attackCooldown = 5f;
+    public float AttackCooldown => _attackCooldown;
+
     private float _biomassMultiplier = 1f;
     public float BiomassMultipier => _biomassMultiplier;
     private float _maxTentacleLaunchStrength = 10f;
