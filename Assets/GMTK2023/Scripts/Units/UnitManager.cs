@@ -7,7 +7,7 @@ public class UnitManager : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
     private Unit _unit;
     private bool _movesFromLeft;
-    protected bool _isStopped;
+    public float speedFactor = 1f;
 
     public void Initialize(Unit unit, bool movesFromLeft)
     {
@@ -19,25 +19,15 @@ public class UnitManager : MonoBehaviour
 
     private void Update()
     {
-        if (_isStopped) return;
+        if (Mathf.Abs(speedFactor) <= 1e-6) return;
 
-        if (_movesFromLeft)
-        {
-            this.transform.Translate(_unit.Speed * Time.deltaTime * Vector2.right);
-        }
-        else
-        {
-            this.transform.Translate(_unit.Speed * Time.deltaTime * Vector2.left);
-        }
+        Vector2 direction = _movesFromLeft ? Vector2.right : Vector2.left;
+
+        this.transform.Translate(this.speedFactor * _unit.Speed * Time.deltaTime * direction);
 
         if (this.transform.position.x > Globals.X_EDGE || this.transform.position.x < -Globals.X_EDGE)
         {
             GameObject.Destroy(this.gameObject);
         }
-    }
-
-    public void Stop()
-    {
-        _isStopped = true;
     }
 }

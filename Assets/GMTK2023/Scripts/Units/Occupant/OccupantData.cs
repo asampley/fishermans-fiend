@@ -11,4 +11,6 @@ public class OccupantData : ScriptableObject
     public string Desc;
     public int Rarity;
     public int Biomass;
+    public float Resistance;
+    public float Health;
 }

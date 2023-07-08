@@ -6,6 +6,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
 {
     [SerializeField] SpriteRenderer _spriteRenderer;
     [SerializeField] Collider2D _collider;
+    [SerializeField] FishingGame _fishingGame;
     private bool _isCollided = false;
     private VictimManager _parent;
 
@@ -13,6 +14,18 @@ public class OccupantManager : MonoBehaviour, ICollidable
     {
         _spriteRenderer.sprite = data.Sprite;
         _parent = parent;
+        _fishingGame.resistance = data.Resistance;
+        _fishingGame.health = data.Health;
+    }
+
+    void OnEnable() {
+        _fishingGame.Lost += OnLost;
+        //_fishingGame.Won += OnWon;
+    }
+
+    void OnDisable() {
+        _fishingGame.Lost -= OnLost;
+        //_fishingGame.Won -= OnWon;
     }
 
     public void Collide(Tentacle tentacle)
@@ -23,6 +36,17 @@ public class OccupantManager : MonoBehaviour, ICollidable
         _isCollided = true;
 
         tentacle.Grab(this.gameObject);
-        _parent.Stop();
+        _parent.CalculateSpeed();
+    }
+
+    void OnLost()
+    {
+        _fishingGame.enabled = false;
+        _parent.CalculateSpeed();
+    }
+
+    public bool IsRowing()
+    {
+        return !_fishingGame.enabled || _fishingGame.HasLost();
     }
 }

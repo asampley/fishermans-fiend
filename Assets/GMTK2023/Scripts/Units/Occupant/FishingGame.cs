@@ -7,10 +7,8 @@ public class FishingGame : MonoBehaviour
 {
     public KeyCode key;
 
-    [SerializeField]
-    private float resistance;
-    [SerializeField]
-    private float health;
+    public float resistance;
+    public float health;
 
     public float opponentStrength;
 
