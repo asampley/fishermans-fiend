@@ -2267,7 +2267,7 @@ MonoBehaviour:
   _sunSprite: {fileID: 21300000, guid: fe81d6795e0aa7449867f72843a27acf, type: 3}
   _moonSprite: {fileID: 21300000, guid: 9a2db86ef28e1ca4fa053589aac61710, type: 3}
   _skyObject: {fileID: 1599412514}
-  _lightObject: {fileID: 0}
+  _lightObject: {fileID: 811431727}
   _skyDaySprite: {fileID: 21300000, guid: 93a829e5ec6486a4886226cd2d45c7a2, type: 3}
   _skyNightSprite: {fileID: 21300000, guid: e21383438fa74094fb0f983bd9673f9d, type: 3}
   _waterDayColor: {r: 0.23137257, g: 0.38823533, b: 0.5294118, a: 0}
