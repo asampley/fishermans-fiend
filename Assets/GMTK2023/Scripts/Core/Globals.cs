@@ -19,11 +19,12 @@ public static class Globals
     public static float MAX_TIME_BETWEEN_ENEMY_SPAWNS = 20f;
 
 
-
     public static DayData[] DAY_DATA;
     public static UpgradeData[] UPGRADE_DATA;
+    public static OccupantData[] OCCUPANT_DATA;
 
 
     public static string DAY_DATA_FOLDER = "ScriptableObjects/DayData";
     public static string UPGRADE_DATA_FOLDER = "ScriptableObjects/UpgradeData";
+    public static string OCCUPANT_DATA_FOLDER = "ScriptableObjects/OccupantData";
 }
