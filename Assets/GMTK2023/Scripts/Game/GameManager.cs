@@ -264,7 +264,6 @@ public class GameManager : MonoBehaviour
     private void _OnSelectUpgrade(object data)
     {
         Upgrade upgrade = data as Upgrade;
-        _currentBiomass = 50;
 
         if (_currentBiomass < upgrade.Cost)
         {
@@ -305,7 +304,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerTakeDamage(int amount)
     {
-        _currentBiomass -= amount;
+        AddBiomass(-amount);
         AudioManager.Instance.source.PlayOneShot(_playerHurtClip);
         if (_currentBiomass <= 0)
         {
@@ -321,5 +320,11 @@ public class GameManager : MonoBehaviour
 
         _currentAwareness += amount;
         Debug.Log(_currentAwareness);
+    }
+
+    public void AddBiomass(int amount)
+    {
+        _currentBiomass += amount;
+        EventManager.TriggerEvent("UpdateBiomass", _currentBiomass);
     }
 }

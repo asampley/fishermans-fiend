@@ -59,6 +59,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
     void OnWon()
     {
+        GameManager.Instance.AddBiomass(data.Biomass);
         this.transform.SetParent(_fishingGame.tentacle.transform);
         this.Fall?.Invoke(this);
         AudioManager.Instance?.source.PlayOneShot(data.fall.Rand());
