@@ -50,7 +50,8 @@ public class TentacleLaunch : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.enabled) {
+        if (this.enabled)
+        {
             collision.GetComponent<ICollidable>().Collide(this.GetComponent<Tentacle>());
         }
     }
