@@ -25,14 +25,12 @@ public class InGameStatsManager : MonoBehaviour
 
     private void _OnUpdateBiomass(object data)
     {
-        Debug.Log("runnign");
         int amount = (int)data;
         _biomassText.text = amount.ToString();
     }
 
     private void _OnUpdateAwareness(object data)
     {
-        Debug.Log("runnign");
         int amount = (int)data;
         _awarenessText.text = amount.ToString();
     }
