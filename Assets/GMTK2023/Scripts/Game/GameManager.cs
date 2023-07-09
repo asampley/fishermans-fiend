@@ -126,7 +126,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _SelectNextDay();
+        StartNextDay();
+        SetPauseGame(true);
     }
 
     private void Update()
