@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Vector2 tentacleAcceleration;
 
+    [SerializeField]
+    private Transform dragPreview;
+
     public Tentacle tentaclePrefab;
 
     private List<Tentacle> tentacles = new();
@@ -14,11 +17,13 @@ public class Player : MonoBehaviour
     void OnEnable()
     {
         InputManager.MouseDrag += OnDrag;
+        InputManager.MouseDragInProgress += OnDragInProgress;
     }
 
     void OnDisable()
     {
         InputManager.MouseDrag -= OnDrag;
+        InputManager.MouseDragInProgress -= OnDragInProgress;
     }
 
     void Update()
@@ -33,12 +38,20 @@ public class Player : MonoBehaviour
 
         if (tentacles.Count >= GameManager.Instance.MaxTentacles) return;
 
+        dragPreview.gameObject.SetActive(false);
+
         Vector2 velocity = Vector2.ClampMagnitude(
             (ev.mouseDown - ev.mouseUp) * GameManager.Instance.TentacleVelocityScale,
             GameManager.Instance.MaxTentacleLaunchStrength
             );
 
         SpawnTentacle(this.transform.position, velocity);
+    }
+
+    void OnDragInProgress(InputManager.MouseDragInProgressEvent ev)
+    {
+        dragPreview.gameObject.SetActive(true);
+        dragPreview.localRotation = Quaternion.FromToRotation(Vector3.up, ev.mouseDown - ev.mouseAt);
     }
 
     public void SpawnTentacle(Vector2 position, Vector2 velocity)
