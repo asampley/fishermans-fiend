@@ -15,7 +15,7 @@ public class Unit
 
     public Unit(UnitData data, bool spawnsOnLeft, float spawnHeight)
     {
-        GameObject g = GameObject.Instantiate(data.Prefab) as GameObject;
+        GameObject g = GameObject.Instantiate(data.Prefab, GameManager.Instance.SpawnParent) as GameObject;
         _transform = g.transform;
         _transform.position = spawnsOnLeft ? new(-Globals.X_EDGE, spawnHeight): new(Globals.X_EDGE, spawnHeight);
 

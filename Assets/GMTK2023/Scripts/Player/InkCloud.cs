@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class InkCloud : MonoBehaviour
 {
-
     [SerializeField]
-    private Transform _attackStartPos;
-    [SerializeField]
-    private GameObject _poisonDartPrefab;
+    private SpriteRenderer _inkCloudSpriteRenderer;
     [SerializeField]
     private AbilityIconManager _abilityIconManager;
 
@@ -18,18 +15,19 @@ public class Attack : MonoBehaviour
 
     void OnEnable()
     {
-        InputManager.Attack += _OnAttack;
+        InputManager.InkCloud += _OnInkCloud;
     }
 
     void OnDisable()
     {
-        InputManager.Attack -= _OnAttack;
+        InputManager.InkCloud -= _OnInkCloud;
     }
 
 
     private void Update()
     {
         if (!_isOnCooldown) return;
+
         _timeElapsed += Time.deltaTime;
         _abilityIconManager.SetMaskPercentage(_timeElapsed / _cooldownDuration);
         if (_timeElapsed >= _cooldownDuration)
@@ -38,13 +36,11 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void _OnAttack(InputManager.AttackEvent ev)
+    private void _OnInkCloud(InputManager.InkCloudEvent ev)
     {
         if (_isOnCooldown) return;
 
-        GameObject g = Instantiate(_poisonDartPrefab, GameManager.Instance.SpawnParent);
-        g.transform.position = _attackStartPos.position;
-        g.GetComponent<ProjectileManager>().Initialize(ev.target, 10, 10f);
+        
 
         _SetOnCooldown(GameManager.Instance.AttackCooldown);
     }

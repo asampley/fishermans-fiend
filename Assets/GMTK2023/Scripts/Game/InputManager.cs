@@ -8,6 +8,7 @@ public class InputManager : MonoBehaviour
     private Vector2 mouseDown;
 
     public static event Action<AttackEvent> Attack;
+    public static event Action<InkCloudEvent> InkCloud;
     public static event Action<MouseDragEvent> MouseDrag;
 
     void OnEnable() {
@@ -39,6 +40,11 @@ public class InputManager : MonoBehaviour
         {
             Attack?.Invoke(new(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
         }
+
+        if (Input.GetButtonDown("A"))
+        {
+            InkCloud?.Invoke(null);
+        }
     }
 
     public class MouseDragEvent
@@ -56,6 +62,11 @@ public class InputManager : MonoBehaviour
         {
             return "{ mouseDown = " + mouseDown + ", mouseUp = " + mouseUp + "}";
         }
+    }
+
+    public class InkCloudEvent
+    {
+
     }
 
     public class AttackEvent

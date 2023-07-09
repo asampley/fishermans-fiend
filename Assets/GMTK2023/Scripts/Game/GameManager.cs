@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     private DayData _currentDayData;
     private float _dayTimer;
     private bool _isNight;
+
+    [SerializeField]
+    private Transform _spawnParent;
+    public Transform SpawnParent => _spawnParent;
     [SerializeField]
     private Transform _sunObject;
     [SerializeField]
@@ -172,7 +176,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void _SelectNextDay()
+    public void _SelectNextDay()
     {
         _spawnEnemyTimer = 0f;
         _spawnObstacleTimer = 0f;
@@ -229,6 +233,10 @@ public class GameManager : MonoBehaviour
         else
         {
             LoseGame?.Invoke();
+        }
+        foreach (Transform child in _spawnParent)
+        {
+            Destroy(child.gameObject);
         }
     }
 
@@ -346,5 +354,12 @@ public class GameManager : MonoBehaviour
     {
         _currentBiomass += amount;
         EventManager.TriggerEvent("UpdateBiomass", _currentBiomass);
+    }
+
+    public void StartNextDay()
+    {
+        _SelectNextDay();
+        _gameIsPaused = false;
+        Time.timeScale = 1;
     }
 }

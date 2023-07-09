@@ -32,4 +32,11 @@ public class UIManager : MonoBehaviour
     {
         _gameOverParent.SetActive(true);
     }
+
+    public void GoToNextDay()
+    {
+        _upgradeMenuParent.SetActive(false);
+        GameManager.Instance.StartNextDay();
+
+    }
 }
