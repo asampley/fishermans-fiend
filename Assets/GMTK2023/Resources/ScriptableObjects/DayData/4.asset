@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b714651f130511645a8717836a4fe0df, type: 3}
   m_Name: 4
   m_EditorClassIdentifier: 
-  DayNumber: 2
+  DayNumber: 4
   DayEnemiesToSpawn:
   - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
   DayObstaclesToSpawn:
