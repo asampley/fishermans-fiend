@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
   NightVictimsToSpawn:
   - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
-  SpawnCooldown: 5
+  SpawnCooldown: 3
   SpawnEnemyTimeMuliplier: 1
   SpawnObstacleTimeMultiplier: 1
   RequiredBiomass: 300

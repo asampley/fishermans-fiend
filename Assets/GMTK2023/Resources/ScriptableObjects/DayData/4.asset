@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec0f3a93e47c0fc47be91840645bd905, type: 2}
   - {fileID: 11400000, guid: e008e913a62ba88448c5b595fc16dd88, type: 2}
   - {fileID: 11400000, guid: 49d244d838d535647b6390f40b22d0d8, type: 2}
-  SpawnCooldown: 5
+  SpawnCooldown: 3
   SpawnEnemyTimeMuliplier: 2
   SpawnObstacleTimeMultiplier: 2
   RequiredBiomass: 150
