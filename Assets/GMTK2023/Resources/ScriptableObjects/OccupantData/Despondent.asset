@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd43eb658c620941b7eb09348fe0832, type: 3}
   m_Name: Despondent
   m_EditorClassIdentifier: 
-  IndexID: 0
+  IndexID: 540
   Name: Despondent
   Desc: "Bitter and complicated with notes of plum, ash, and eyeliner. Mostly unpalatable
     unless I\u2019m in the right mood."

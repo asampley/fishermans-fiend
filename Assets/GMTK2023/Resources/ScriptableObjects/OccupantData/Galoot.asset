@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd43eb658c620941b7eb09348fe0832, type: 3}
   m_Name: Galoot
   m_EditorClassIdentifier: 
-  IndexID: 0
+  IndexID: 914
   Name: Galoot
   Desc: Supple with toasty and smoky notes. Although I could do without the ashy
     after taste.

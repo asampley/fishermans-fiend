@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd43eb658c620941b7eb09348fe0832, type: 3}
   m_Name: Pedant
   m_EditorClassIdentifier: 
-  IndexID: 0
+  IndexID: 555
   Name: Pedant
   Desc: "Too pointy! But really gamey once you get under the crust. Not sure what
     I\u2019m going to do with all these extra hats though."

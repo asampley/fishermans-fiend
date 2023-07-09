@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd43eb658c620941b7eb09348fe0832, type: 3}
   m_Name: Waif
   m_EditorClassIdentifier: 
-  IndexID: 0
+  IndexID: 203
   Name: Waif
   Desc: 'Floral and almost sickeningly sweet. That said: the orbs provide a refreshing
     salty rush when burst! '
