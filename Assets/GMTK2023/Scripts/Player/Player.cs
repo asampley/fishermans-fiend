@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public void SpawnTentacle(Vector2 position, Vector2 velocity)
     {
         GameObject obj = Instantiate(this.tentaclePrefab.gameObject, (Vector3)position, Quaternion.identity);
+        obj.transform.parent = GameManager.Instance.SpawnParent;
 
         Tentacle tentacle = obj.GetComponent<Tentacle>();
 
