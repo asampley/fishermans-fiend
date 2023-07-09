@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
             Attack?.Invoke(new(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
         }
 
-        if (Input.GetButtonDown("A"))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             InkCloud?.Invoke(null);
         }

@@ -40,7 +40,8 @@ public class InkCloud : MonoBehaviour
     {
         if (_isOnCooldown) return;
 
-        
+
+        StartCoroutine(_FadeInkCloud(5f));
 
         _SetOnCooldown(GameManager.Instance.AttackCooldown);
     }
@@ -51,5 +52,23 @@ public class InkCloud : MonoBehaviour
         _cooldownDuration = duration;
         _abilityIconManager.SetMaskPercentage(1);
         _isOnCooldown = true;
+    }
+
+    private IEnumerator _FadeInkCloud(float duration)
+    {
+        Debug.Log("Running");
+        Color full = new(1, 1, 1, 1);
+        Color hidden = new(1, 1, 1, 0);
+
+        float ElapsedTime = 0.0f;
+        float TotalTime = duration;
+        while (ElapsedTime < TotalTime)
+        {
+            ElapsedTime += Time.deltaTime;
+            _inkCloudSpriteRenderer.color = Color.Lerp(full, hidden, (ElapsedTime / TotalTime));
+            yield return null;
+        }
+
+        yield return null;
     }
 }
