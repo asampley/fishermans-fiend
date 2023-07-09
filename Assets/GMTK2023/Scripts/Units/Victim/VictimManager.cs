@@ -85,6 +85,7 @@ public class VictimManager : UnitManager, ICollidable
         manager.GetComponent<Rigidbody2D>().isKinematic = false;
         AudioManager.Instance.source.PlayOneShot(manager.data.falling.Rand());
         AudioManager.Instance.source.PlayOneShot(manager.data.fall.Rand());
+        manager.GetComponent<Collider2D>().enabled = false;
     }
 
     OccupantData SelectOccupantFromData(OccupantData[] datas)
