@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Biomass Gain +20%
   m_EditorClassIdentifier: 
   Title: Biomass Gain +20%
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 877ea231d3c36c246a63e0423109c1e3, type: 3}
   Desc: Increases the amount of biomass gained.
   Effect: 0
   Amount: 0.2
