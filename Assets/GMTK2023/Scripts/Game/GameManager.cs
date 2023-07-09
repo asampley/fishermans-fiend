@@ -247,6 +247,8 @@ public class GameManager : MonoBehaviour
 
     private void _EndDay()
     {
+        _sirenSongActive = false;
+        _inkCloudActive = false;
         SetPauseGame(true);
 
         if (_currentDay >= 10 && _currentBiomass >= _currentDayData.RequiredBiomass)
