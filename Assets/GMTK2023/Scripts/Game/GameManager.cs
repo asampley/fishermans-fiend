@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
 
 
     public event Action FinishDay;
+    public event Action NewDay;
     public event Action LoseGame;
 
 
@@ -382,6 +383,7 @@ public class GameManager : MonoBehaviour
         _SelectNextDay();
         Time.timeScale = 1;
         _gameIsPaused = false;
+        NewDay?.Invoke();
     }
 
     public void SetInkCloudActive(bool isActive)
