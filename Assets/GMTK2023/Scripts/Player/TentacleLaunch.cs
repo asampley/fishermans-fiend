@@ -16,6 +16,8 @@ public class TentacleLaunch : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameManager.Instance.GameIsPaused) return;
+
         this.velocity += this.acceleration * Time.fixedDeltaTime;
         this.position += this.velocity * Time.fixedDeltaTime;
 

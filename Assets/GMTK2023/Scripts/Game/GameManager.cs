@@ -388,7 +388,7 @@ public class GameManager : MonoBehaviour
 
     public void AddBiomass(int amount)
     {
-        _currentBiomass += amount;
+        _currentBiomass += (int)(amount * _biomassMultiplier);
         EventManager.TriggerEvent("UpdateBiomass", _currentBiomass);
     }
 
