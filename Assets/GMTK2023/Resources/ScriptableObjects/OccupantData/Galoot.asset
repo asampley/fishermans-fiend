@@ -25,9 +25,6 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 01cb968193b9ace409cc4bf6810841d7, type: 3}
   fall:
     audios:
-    - {fileID: 8300000, guid: 08750ff0cec5ed1499d114cae54af74e, type: 3}
-    - {fileID: 8300000, guid: 8c470dc5c66905d49a6217f386ada5b9, type: 3}
-    - {fileID: 8300000, guid: f4f4a49e726acb541bf0bd37f86c73d7, type: 3}
     - {fileID: 8300000, guid: 8807742736cabd24a9bc67f568bc3f48, type: 3}
   falling:
     audios:
