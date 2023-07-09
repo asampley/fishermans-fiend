@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Waif
   m_EditorClassIdentifier: 
   IndexID: 0
-  Name: Dude
-  Desc: A basic dude.
+  Name: Waif
+  Desc: Small but wily.
   Sprite: {fileID: 21300000, guid: 4805a8a264eed1347aa772f35f178192, type: 3}
   Rarity: 3
   Biomass: 10

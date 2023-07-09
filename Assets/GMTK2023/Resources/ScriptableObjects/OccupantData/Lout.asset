@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Lout
   m_EditorClassIdentifier: 
   IndexID: 0
-  Name: Dude
-  Desc: A basic dude.
+  Name: Lout
+  Desc: This is probably his vacation.
   Sprite: {fileID: 21300000, guid: a209920b371bc844c9ebc825c2044535, type: 3}
   Rarity: 1
   Biomass: 10

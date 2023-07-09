@@ -10,25 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bd43eb658c620941b7eb09348fe0832, type: 3}
-  m_Name: Galoot
+  m_Name: Pedant
   m_EditorClassIdentifier: 
   IndexID: 0
-  Name: Galoot
-  Desc: Strong, but brute force has its limits.
-  Sprite: {fileID: 21300000, guid: 2417d61f8a1e7de459a56152697781df, type: 3}
-  Rarity: 3
+  Name: Pedant
+  Desc: You had better watch your mouth around this one.
+  Sprite: {fileID: 21300000, guid: 343e852c280f10649bc356fef2f92577, type: 3}
+  Rarity: 5
   Biomass: 20
-  Resistance: 0.1
-  ProgressRate: 0.05
-  GoTimeRange: {x: 100, y: 100}
-  StopTimeRange: {x: 0, y: 0}
+  Resistance: 0.5
+  ProgressRate: 0.25
+  GoTimeRange: {x: 1.5, y: 3}
+  StopTimeRange: {x: 4, y: 6}
   fighting:
     audios:
     - {fileID: 8300000, guid: 01cb968193b9ace409cc4bf6810841d7, type: 3}
   fall:
     audios:
-    - {fileID: 8300000, guid: 8807742736cabd24a9bc67f568bc3f48, type: 3}
+    - {fileID: 8300000, guid: 08750ff0cec5ed1499d114cae54af74e, type: 3}
+    - {fileID: 8300000, guid: 8c470dc5c66905d49a6217f386ada5b9, type: 3}
+    - {fileID: 8300000, guid: f4f4a49e726acb541bf0bd37f86c73d7, type: 3}
   falling:
     audios:
     - {fileID: 8300000, guid: e7319dd133ba13b4aa05ab29ba699ff8, type: 3}
     - {fileID: 8300000, guid: 53164db583146074b8154c94c490768c, type: 3}
+    - {fileID: 8300000, guid: 116209b98882507439446417deb5acb0, type: 3}

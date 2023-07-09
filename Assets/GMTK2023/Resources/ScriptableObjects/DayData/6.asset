@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b714651f130511645a8717836a4fe0df, type: 3}
-  m_Name: 4
+  m_Name: 6
   m_EditorClassIdentifier: 
   DayNumber: 4
   DayEnemiesToSpawn:
@@ -19,8 +19,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
   DayVictimsToSpawn:
   - {fileID: 11400000, guid: ec0f3a93e47c0fc47be91840645bd905, type: 2}
-  - {fileID: 11400000, guid: 768c59bd6a455984495f417ed52142ec, type: 2}
-  - {fileID: 11400000, guid: 49d244d838d535647b6390f40b22d0d8, type: 2}
+  - {fileID: 11400000, guid: e008e913a62ba88448c5b595fc16dd88, type: 2}
+  - {fileID: 11400000, guid: 69abfebf7499b1b40893b00731db7dfb, type: 2}
   NightEnemiesToSpawn: []
   NightObstaclesToSpawn:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
