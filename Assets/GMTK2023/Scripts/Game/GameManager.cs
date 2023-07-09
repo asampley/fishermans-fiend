@@ -178,7 +178,6 @@ public class GameManager : MonoBehaviour
 
     public void _SelectNextDay()
     {
-        _dayTimer = 0f;
         _spawnEnemyTimer = 0f;
         _spawnObstacleTimer = 0f;
         _spawnVictimTimer = 0f;
@@ -189,6 +188,7 @@ public class GameManager : MonoBehaviour
         _currentDay++;
         _currentDayData = Globals.DAY_DATA.Where((DayData x) => x.DayNumber == _currentDay).First();
         _dayTimer = 0f;
+        _isNight = false;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _sunSprite;
         _skyObject.sprite = _skyDaySprite;
         _lightObject.enabled = true;
@@ -360,7 +360,7 @@ public class GameManager : MonoBehaviour
     public void StartNextDay()
     {
         _SelectNextDay();
-        _gameIsPaused = false;
         Time.timeScale = 1;
+        _gameIsPaused = false;
     }
 }
