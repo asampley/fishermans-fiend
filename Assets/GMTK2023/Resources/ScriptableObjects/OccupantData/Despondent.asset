@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Despondent
   Desc: Slower to react, but puts up a surprisingly long fight.
   Sprite: {fileID: 21300000, guid: 8800001f20cbcde4c85c2edd9b7cf10f, type: 3}
-  Rarity: 5
+  Rarity: 7
   Biomass: 20
   Resistance: 0.1
   ProgressRate: 0.1
