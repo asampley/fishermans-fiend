@@ -178,6 +178,7 @@ public class GameManager : MonoBehaviour
 
     public void _SelectNextDay()
     {
+        _dayTimer = 0f;
         _spawnEnemyTimer = 0f;
         _spawnObstacleTimer = 0f;
         _spawnVictimTimer = 0f;
