@@ -17,7 +17,7 @@ public class VictimManager : UnitManager, ICollidable
     {
         this.data = data;
 
-        int numOccupants = UnityEngine.Random.Range(1, 4);
+        int numOccupants = UnityEngine.Random.Range(1, _occupants.Count);
 
         for (int i = 0; i < numOccupants; i++)
         {
