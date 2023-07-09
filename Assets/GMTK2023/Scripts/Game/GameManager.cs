@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     private float _nextObstacleSpawn;
     private float _nextVictimSpawn;
 
-    private int _currentBiomass;
+    private int _currentBiomass = 30;
     public int CurrentBiomass => _currentBiomass;
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
@@ -95,6 +95,9 @@ public class GameManager : MonoBehaviour
     public float SirenSongCooldown => _sirenSongCooldown;
     private bool _sirenSongActive;
     public bool SirenSongActive => _sirenSongActive;
+
+    private float _sirenSongDuration = 4f;
+    public float SirenSongDuration => _sirenSongDuration;
 
 
     public event Action<bool> PauseGame;
