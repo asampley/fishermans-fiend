@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Supplicant
-  Desc: I think I heard him pleading on the way down.
+  Desc: "A rich fatty cut with decadent flavours. I would gorge on this every day
+    if I wasn\u2019t trying to lose weight."
   Sprite: {fileID: 21300000, guid: ad2a86b5e5557f9439b2a2b2d26d5b22, type: 3}
   Rarity: 7
   Biomass: 30

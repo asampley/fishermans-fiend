@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Lout
-  Desc: This is probably his vacation.
+  Desc: Strong nutty flavours. A good all rounder. I should be sure to stock up on
+    some of these!
   Sprite: {fileID: 21300000, guid: a209920b371bc844c9ebc825c2044535, type: 3}
   Rarity: 1
   Biomass: 10

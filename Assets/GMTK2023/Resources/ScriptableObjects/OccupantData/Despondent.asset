@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Despondent
-  Desc: Slower to react, but puts up a surprisingly long fight.
+  Desc: "Bitter and complicated with notes of plum, ash, and eyeliner. Mostly unpalatable
+    unless I\u2019m in the right mood."
   Sprite: {fileID: 21300000, guid: 8800001f20cbcde4c85c2edd9b7cf10f, type: 3}
   Rarity: 7
   Biomass: 20

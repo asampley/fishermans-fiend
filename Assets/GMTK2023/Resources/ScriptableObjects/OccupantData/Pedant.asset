@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Pedant
-  Desc: You had better watch your mouth around this one.
+  Desc: "Too pointy! But really gamey once you get under the crust. Not sure what
+    I\u2019m going to do with all these extra hats though."
   Sprite: {fileID: 21300000, guid: 343e852c280f10649bc356fef2f92577, type: 3}
   Rarity: 7
   Biomass: 20

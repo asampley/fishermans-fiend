@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Biologist
-  Desc: The look in his eyes seemed more knowing than the rest.
+  Desc: "Juicy hind quarters.This one tastes like unfinished game\u2026 Maybe I should
+    have waited another 48 hours before eating it\u2026."
   Sprite: {fileID: 21300000, guid: 7639b8c7778238544b0be31db9343e59, type: 3}
   Rarity: 7
   Biomass: 20
