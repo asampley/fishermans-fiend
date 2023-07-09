@@ -13,20 +13,21 @@ MonoBehaviour:
   m_Name: 4
   m_EditorClassIdentifier: 
   DayNumber: 4
-  DayEnemiesToSpawn:
-  - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
+  DayEnemiesToSpawn: []
   DayObstaclesToSpawn:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
   DayVictimsToSpawn:
   - {fileID: 11400000, guid: ec0f3a93e47c0fc47be91840645bd905, type: 2}
   - {fileID: 11400000, guid: 768c59bd6a455984495f417ed52142ec, type: 2}
   - {fileID: 11400000, guid: 49d244d838d535647b6390f40b22d0d8, type: 2}
-  NightEnemiesToSpawn: []
-  NightObstaclesToSpawn:
-  - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
+  NightEnemiesToSpawn:
+  - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
+  NightObstaclesToSpawn: []
   NightVictimsToSpawn:
-  - {fileID: 11400000, guid: 11136107374cf9846a142f1bec97620d, type: 2}
+  - {fileID: 11400000, guid: ec0f3a93e47c0fc47be91840645bd905, type: 2}
+  - {fileID: 11400000, guid: e008e913a62ba88448c5b595fc16dd88, type: 2}
+  - {fileID: 11400000, guid: 49d244d838d535647b6390f40b22d0d8, type: 2}
   SpawnCooldown: 5
-  SpawnEnemyTimeMuliplier: 1
-  SpawnObstacleTimeMultiplier: 1
+  SpawnEnemyTimeMuliplier: 2
+  SpawnObstacleTimeMultiplier: 2
   RequiredBiomass: 150

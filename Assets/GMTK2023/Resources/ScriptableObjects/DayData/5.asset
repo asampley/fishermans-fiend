@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b714651f130511645a8717836a4fe0df, type: 3}
   m_Name: 5
   m_EditorClassIdentifier: 
-  DayNumber: 4
+  DayNumber: 5
   DayEnemiesToSpawn:
   - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
   DayObstaclesToSpawn:
@@ -21,7 +21,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ec0f3a93e47c0fc47be91840645bd905, type: 2}
   - {fileID: 11400000, guid: e008e913a62ba88448c5b595fc16dd88, type: 2}
   - {fileID: 11400000, guid: 49d244d838d535647b6390f40b22d0d8, type: 2}
-  NightEnemiesToSpawn: []
+  NightEnemiesToSpawn:
+  - {fileID: 11400000, guid: f713e3027304df849838179acd4f92f3, type: 2}
   NightObstaclesToSpawn:
   - {fileID: 11400000, guid: 365f074e8197dae4a88f2eeac2198beb, type: 2}
   NightVictimsToSpawn:
@@ -29,4 +30,4 @@ MonoBehaviour:
   SpawnCooldown: 5
   SpawnEnemyTimeMuliplier: 1
   SpawnObstacleTimeMultiplier: 1
-  RequiredBiomass: 150
+  RequiredBiomass: 300
