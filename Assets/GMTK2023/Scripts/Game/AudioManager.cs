@@ -36,10 +36,12 @@ public class AudioManager : MonoBehaviour
     void OnNewDay()
     {
         source.clip = gameMusic;
+        source.Play();
     }
 
     void OnFinishDay()
     {
         source.clip = menuMusic;
+        source.Play();
     }
 }
