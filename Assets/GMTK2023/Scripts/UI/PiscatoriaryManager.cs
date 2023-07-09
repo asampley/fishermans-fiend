@@ -37,12 +37,15 @@ public class PiscatoriaryManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.AddListener("TogglePiscatoriary", _OnTogglePiscatoriary);
+        EventManager.AddListener("PiscatoriaryGoBack", _OnGoBack);
         EventManager.AddListener("CaughtOccupant", _OnCaughtOccupant);
         EventManager.AddListener("OpenPiscatoriaryEntry", _OnOpenEntry);
+        
     }
     private void OnDisable()
     {
         EventManager.RemoveListener("TogglePiscatoriary", _OnTogglePiscatoriary);
+        EventManager.RemoveListener("PiscatoriaryGoBack", _OnGoBack);
         EventManager.RemoveListener("CaughtOccupant", _OnCaughtOccupant);
         EventManager.RemoveListener("OpenPiscatoriaryEntry", _OnOpenEntry);
 
@@ -60,7 +63,9 @@ public class PiscatoriaryManager : MonoBehaviour
 
     private void _OnCaughtOccupant(object data)
     {
-        OccupantData occupantData = data as OccupantData;
+        Debug.Log("pee");
+        OccupantManager occupantManager= data as OccupantManager;
+        OccupantData occupantData = occupantManager.data;
 
         if (!_hasBeenCaughtDict[occupantData])
         {
@@ -120,5 +125,11 @@ public class PiscatoriaryManager : MonoBehaviour
         {
             GameManager.Instance.SetPauseGame(false);
         }
+    }
+
+    private void _OnGoBack()
+    {
+        _entryParent.gameObject.SetActive(false);
+        _listParent.gameObject.SetActive(true);
     }
 }

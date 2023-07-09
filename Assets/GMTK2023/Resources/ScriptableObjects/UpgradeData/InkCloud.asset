@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InkCloud
   m_EditorClassIdentifier: 
   Title: Enable Ink Cloud
-  Icon: {fileID: 21300000, guid: 7d2d36bb7170f3d44b5a224f9c073fdc, type: 3}
+  Icon: {fileID: 21300000, guid: 457652bcc603e274ba8b4a191d5cda0e, type: 3}
   Effect: 6
   Amount: 0
   Cost: 20

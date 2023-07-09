@@ -61,6 +61,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
 
     void OnWon()
     {
+        EventManager.TriggerEvent("CaughtOccupant", this);
         GameManager.Instance.PlayerDefeatOccupant(this);
         this.transform.SetParent(_fishingGame.tentacle.transform);
         this.Fall?.Invoke(this);
