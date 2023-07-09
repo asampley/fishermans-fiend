@@ -255,7 +255,7 @@ public class GameManager : MonoBehaviour
         _inkCloudActive = false;
         SetPauseGame(true);
 
-        if (_currentDay >= 10 && _currentBiomass >= _currentDayData.RequiredBiomass)
+        if (_currentDay >= 6 && _currentBiomass >= _currentDayData.RequiredBiomass)
         {
             WinGame?.Invoke();
         }
