@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 
     public static event Action<AttackEvent> Attack;
     public static event Action<InkCloudEvent> InkCloud;
+    public static event Action<SirenSongEvent> SirenSong;
     public static event Action<MouseDragEvent> MouseDrag;
 
     void OnEnable() {
@@ -45,6 +46,10 @@ public class InputManager : MonoBehaviour
         {
             InkCloud?.Invoke(null);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SirenSong?.Invoke(null);
+        }
     }
 
     public class MouseDragEvent
@@ -65,6 +70,11 @@ public class InputManager : MonoBehaviour
     }
 
     public class InkCloudEvent
+    {
+
+    }
+
+    public class SirenSongEvent
     {
 
     }
