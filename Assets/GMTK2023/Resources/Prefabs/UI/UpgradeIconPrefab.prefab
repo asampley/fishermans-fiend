@@ -372,7 +372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Siren Song
+  m_text: Biomass Gain +20%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03080721b2b00154e9d70ad1ff10ffb3, type: 2}
   m_sharedMaterial: {fileID: -3338691243442327978, guid: 03080721b2b00154e9d70ad1ff10ffb3, type: 2}
@@ -399,8 +399,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
