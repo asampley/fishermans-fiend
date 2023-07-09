@@ -21,6 +21,10 @@ public class PiscatoriaryManager : MonoBehaviour
     private Image _entryImage;
     [SerializeField]
     private TextMeshProUGUI _entryDescText;
+    [SerializeField]
+    private GameObject _closoutButton;
+    [SerializeField]
+    private GameObject _backButton;
 
 
 
@@ -63,7 +67,6 @@ public class PiscatoriaryManager : MonoBehaviour
 
     private void _OnCaughtOccupant(object data)
     {
-        Debug.Log("pee");
         OccupantManager occupantManager= data as OccupantManager;
         OccupantData occupantData = occupantManager.data;
 
@@ -103,6 +106,8 @@ public class PiscatoriaryManager : MonoBehaviour
     private void _OnOpenEntry(object data)
     {
         OccupantData occupantData = data as OccupantData;
+        _closoutButton.SetActive(false);
+        _backButton.SetActive(true);
 
         _listParent.gameObject.SetActive(false);
         _entryParent.gameObject.SetActive(true);
@@ -120,15 +125,21 @@ public class PiscatoriaryManager : MonoBehaviour
         if (_parent.gameObject.activeInHierarchy)
         {
             GameManager.Instance.SetPauseGame(true);
+            _closoutButton.SetActive(true);
+            _backButton.SetActive(false);
         }
         else
         {
+            _listParent.gameObject.SetActive(true);
+            _entryParent.gameObject.SetActive(false);
             GameManager.Instance.SetPauseGame(false);
         }
     }
 
     private void _OnGoBack()
     {
+        _closoutButton.SetActive(true);
+        _backButton.SetActive(false);
         _entryParent.gameObject.SetActive(false);
         _listParent.gameObject.SetActive(true);
     }

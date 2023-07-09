@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     private float _nextObstacleSpawn;
     private float _nextVictimSpawn;
 
-    private int _currentBiomass;
+    private int _currentBiomass = 3000;
     public int CurrentBiomass => _currentBiomass;
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
@@ -342,7 +342,7 @@ public class GameManager : MonoBehaviour
                     _player.GetComponent<InkCloud>().ActivateManager();
                     break;
                 case UpgradeEffect.EnableSirenSong:
-                    _canInkCloud = true;
+                    _canSirenSong = true;
                     _player.GetComponent<SirenSong>().ActivateManager();
                     break;
             }

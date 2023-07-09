@@ -37,8 +37,9 @@ public class SirenSong : MonoBehaviour
 
     private void _OnSirenSong(InputManager.SirenSongEvent ev)
     {
+        Debug.Log("Running");
         if (_isOnCooldown || !GameManager.Instance.CanSirenSong) return;
-
+        Debug.Log("Running2");
         GameManager.Instance.SetSirenSongActive(true);
         _SetOnCooldown(GameManager.Instance.SirenSongCooldown);
     }

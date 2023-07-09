@@ -8,8 +8,8 @@ public static class Globals
     public static float Y_MAX = 7f;
     public static float SUN_OBJECT_Y = 9f;
 
-    public static float DAY_DURATION = 60f;
-    public static float NIGHT_DURATION = 30f;
+    public static float DAY_DURATION = 10f;
+    public static float NIGHT_DURATION = 10f;
     public static float DAY_TOTAL_DURATION = DAY_DURATION + NIGHT_DURATION;
 
     public static float MIN_TIME_BETWEEN_VICTIM_SPAWNS = 3f;
