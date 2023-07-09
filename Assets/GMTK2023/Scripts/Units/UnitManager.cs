@@ -23,7 +23,7 @@ public class UnitManager : MonoBehaviour
 
     private void Update()
     {
-        if (!_initialized || Mathf.Abs(speedFactor) <= 1e-6) return;
+        if (!_initialized || Mathf.Abs(speedFactor) <= 1e-6 || GameManager.Instance.GameIsPaused || GameManager.Instance.SirenSongActive) return;
 
         Vector2 direction = _movesFromLeft ? Vector2.right : Vector2.left;
 

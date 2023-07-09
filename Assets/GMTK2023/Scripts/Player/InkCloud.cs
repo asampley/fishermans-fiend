@@ -39,7 +39,7 @@ public class InkCloud : MonoBehaviour
 
     private void _OnInkCloud(InputManager.InkCloudEvent ev)
     {
-        if (_isOnCooldown) return;
+        if (_isOnCooldown || !GameManager.Instance.CanInkCloud) return;
 
         GameManager.Instance.SetInkCloudActive(true);
         StartCoroutine(_FadeInkCloud(5f));
