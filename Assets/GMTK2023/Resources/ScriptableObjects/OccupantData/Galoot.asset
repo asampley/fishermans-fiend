@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Galoot
-  Desc: Strong, but brute force has its limits.
+  Desc: Supple with toasty and smoky notes. Although I could do without the ashy
+    after taste.
   Sprite: {fileID: 21300000, guid: 2417d61f8a1e7de459a56152697781df, type: 3}
   Rarity: 5
   Biomass: 20

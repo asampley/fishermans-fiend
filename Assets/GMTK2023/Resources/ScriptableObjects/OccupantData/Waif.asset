@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IndexID: 0
   Name: Waif
-  Desc: Small but wily.
+  Desc: 'Floral and almost sickeningly sweet. That said: the orbs provide a refreshing
+    salty rush when burst! '
   Sprite: {fileID: 21300000, guid: 4805a8a264eed1347aa772f35f178192, type: 3}
   Rarity: 5
   Biomass: 10
