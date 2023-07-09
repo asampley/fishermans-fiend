@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     private float _nextObstacleSpawn;
     private float _nextVictimSpawn;
 
-    private int _currentBiomass = 3000;
+    private int _currentBiomass;
     public int CurrentBiomass => _currentBiomass;
     private int _currentAwareness;
     public int CurrentAwareness => _currentAwareness;
@@ -130,7 +130,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_gameIsPaused) return;
+        if (_gameIsPaused) return;        
+
+        _dayTimer += Time.deltaTime;
+        _UpdateSunObject();
+        if (!_isNight && _dayTimer >= Globals.DAY_DURATION) _StartNight();
+        if (_dayTimer >= Globals.DAY_TOTAL_DURATION) _EndDay();
+
+        if (Globals.DAY_TOTAL_DURATION - _dayTimer <= 15) return;
 
         if (!_isNight && _currentDayData.DayEnemiesToSpawn.Length > 0
             || _isNight && _currentDayData.NightEnemiesToSpawn.Length > 0)
@@ -147,11 +154,6 @@ public class GameManager : MonoBehaviour
         {
             _CheckVictimSpawn();
         }
-
-        _dayTimer += Time.deltaTime;
-        _UpdateSunObject();
-        if (!_isNight && _dayTimer >= Globals.DAY_DURATION) _StartNight();
-        if (_dayTimer >= Globals.DAY_TOTAL_DURATION) _EndDay();
     }
 
     private void _CheckEnemySpawn()
