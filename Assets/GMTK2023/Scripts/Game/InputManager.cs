@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     public static event Action<InkCloudEvent> InkCloud;
     public static event Action<SirenSongEvent> SirenSong;
     public static event Action<MouseDragEvent> MouseDrag;
+    public static event Action<MouseDragInProgressEvent> MouseDragInProgress;
 
     void OnEnable() {
         MouseDrag += PrintEvent;
@@ -26,6 +27,18 @@ public class InputManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mouseDown = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            MouseDragInProgressEvent ev = new(
+                mouseDown,
+                Camera.main.ScreenToWorldPoint(Input.mousePosition)
+            );
+
+            Debug.Log(ev);
+
+            MouseDragInProgress?.Invoke(ev);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -66,6 +79,23 @@ public class InputManager : MonoBehaviour
         public override string ToString()
         {
             return "{ mouseDown = " + mouseDown + ", mouseUp = " + mouseUp + "}";
+        }
+    }
+
+    public class MouseDragInProgressEvent
+    {
+        public Vector2 mouseDown;
+        public Vector2 mouseAt;
+
+        public MouseDragInProgressEvent(Vector2 mouseDown, Vector2 mouseAt)
+        {
+            this.mouseDown = mouseDown;
+            this.mouseAt = mouseAt;
+        }
+
+        public override string ToString()
+        {
+            return "{ mouseDown = " + mouseDown + ", mouseAt = " + mouseAt + "}";
         }
     }
 
