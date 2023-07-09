@@ -36,8 +36,6 @@ public class InputManager : MonoBehaviour
                 Camera.main.ScreenToWorldPoint(Input.mousePosition)
             );
 
-            Debug.Log(ev);
-
             MouseDragInProgress?.Invoke(ev);
         }
 

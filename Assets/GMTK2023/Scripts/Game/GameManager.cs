@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     public bool SirenSongActive => _sirenSongActive;
 
 
-
+    public event Action<bool> PauseGame;
     public event Action FinishDay;
     public event Action NewDay;
     public event Action LoseGame;
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_gameIsPaused) return;        
+        if (_gameIsPaused) return;
 
         _dayTimer += Time.deltaTime;
         _UpdateSunObject();
@@ -422,5 +422,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
+        PauseGame?.Invoke(_gameIsPaused);
     }
 }

@@ -16,12 +16,14 @@ public class AudioManager : MonoBehaviour
     {
         GameManager.Instance.NewDay += OnNewDay;
         GameManager.Instance.FinishDay += OnFinishDay;
+        GameManager.Instance.PauseGame += OnPause;
     }
 
     void OnDestroy()
     {
-        GameManager.Instance.NewDay += OnNewDay;
-        GameManager.Instance.FinishDay += OnFinishDay;
+        GameManager.Instance.NewDay -= OnNewDay;
+        GameManager.Instance.FinishDay -= OnFinishDay;
+        GameManager.Instance.PauseGame -= OnPause;
     }
 
     private void Awake()
@@ -36,12 +38,26 @@ public class AudioManager : MonoBehaviour
     void OnNewDay()
     {
         source.clip = gameMusic;
-        source.Play();
+        if (!GameManager.Instance.GameIsPaused)
+        {
+            source.Play();
+        }
     }
 
     void OnFinishDay()
     {
         source.clip = menuMusic;
         source.Play();
+    }
+
+    void OnPause(bool paused)
+    {
+        Debug.Log(source.clip == gameMusic);
+        if (source.clip == gameMusic && paused)
+        {
+            source.Pause();
+        } else {
+            source.UnPause();
+        }
     }
 }
