@@ -23,7 +23,7 @@ public class VictimManager : UnitManager, ICollidable
         {
             _occupants[i].SetActive(true);
             OccupantManager occupantManager = _occupants[i].GetComponent<OccupantManager>();
-            occupantManager.Initialize(occupantDatas[UnityEngine.Random.Range(0, occupantDatas.Length)], this);
+            occupantManager.Initialize(SelectOccupantFromData(occupantDatas), this);
             occupantManager.Fall += this.RemoveOccupant;
         }
 
@@ -85,5 +85,21 @@ public class VictimManager : UnitManager, ICollidable
         manager.GetComponent<Rigidbody2D>().isKinematic = false;
         AudioManager.Instance.source.PlayOneShot(manager.data.falling.Rand());
         AudioManager.Instance.source.PlayOneShot(manager.data.fall.Rand());
+    }
+
+    OccupantData SelectOccupantFromData(OccupantData[] datas)
+    {
+        float rarityRange = datas.Select(d => 1f / d.Rarity).Sum();
+        float selector = UnityEngine.Random.Range(0f, rarityRange);
+
+        foreach (OccupantData data in datas)
+        {
+            selector -= 1f / data.Rarity;
+            if (selector <= 0.0) {
+                return data;
+            }
+        }
+
+        return datas[^1];
     }
 }

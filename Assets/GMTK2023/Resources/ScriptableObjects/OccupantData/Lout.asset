@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Dude
   Desc: A basic dude.
   Sprite: {fileID: 21300000, guid: a209920b371bc844c9ebc825c2044535, type: 3}
-  Rarity: 0
+  Rarity: 1
   Biomass: 10
   Resistance: 0.33
   Health: 2
