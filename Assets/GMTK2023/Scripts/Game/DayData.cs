@@ -16,5 +16,8 @@ public class DayData : ScriptableObject
     public VictimData[] NightVictimsToSpawn;
 
     public float SpawnCooldown;
+    public float SpawnEnemyTimeMuliplier = 1f;
+    public float SpawnObstacleTimeMultiplier = 1f;
+
     public int RequiredBiomass;
 }
