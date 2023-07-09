@@ -75,9 +75,18 @@ public class GameManager : MonoBehaviour
     private bool _canPoisonDart = false;
     public bool CanPoisonDart => _canPoisonDart;
     private bool _canLaserBeam = false;
+    private bool _canInkCloud = false;
+    public bool CanInkCloud => _canInkCloud;
     public bool CanLaserBeam => _canLaserBeam;
-    private bool _canInkPouch = false;
-    public bool CanInkPouch => _canInkPouch;
+    private float _inkCloudCooldown = 30f;
+    public float InkCloudCooldown => _inkCloudCooldown;
+    private bool _inkCloudActive;
+    public bool InkCloudActive => _sirenSongActive;
+    private float _sirenSongCooldown = 30f;
+    public float SirenSongCooldown => _inkCloudCooldown;
+    private bool _sirenSongActive;
+    public bool SirenSongActive => _sirenSongActive; 
+
 
 
     public event Action FinishDay;
@@ -319,7 +328,7 @@ public class GameManager : MonoBehaviour
                     _canLaserBeam = true;
                     break;
                 case UpgradeEffect.EnableInkPouch:
-                    _canInkPouch = true;
+                    _canInkCloud = true;
                     break;
             }
 
@@ -344,7 +353,7 @@ public class GameManager : MonoBehaviour
 
     private void _OnIncreaseAwareness(object data)
     {
-        if (_isNight) return;
+        if (_isNight || _inkCloudActive) return;
 
         int amount = (int)data;
 
@@ -364,5 +373,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         _gameIsPaused = false;
         NewDay?.Invoke();
+    }
+
+    public void SetInkCloudActive(bool isActive)
+    {
+        _inkCloudActive = isActive;
+    }
+
+    public void SetSirenSongActive(bool isActive)
+    {
+        _sirenSongActive = isActive;
     }
 }

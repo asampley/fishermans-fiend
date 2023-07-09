@@ -33,6 +33,7 @@ public class InkCloud : MonoBehaviour
         if (_timeElapsed >= _cooldownDuration)
         {
             _isOnCooldown = false;
+            GameManager.Instance.SetInkCloudActive(false);
         }
     }
 
@@ -40,10 +41,10 @@ public class InkCloud : MonoBehaviour
     {
         if (_isOnCooldown) return;
 
-
+        GameManager.Instance.SetInkCloudActive(true);
         StartCoroutine(_FadeInkCloud(5f));
 
-        _SetOnCooldown(GameManager.Instance.AttackCooldown);
+        _SetOnCooldown(GameManager.Instance.InkCloudCooldown);
     }
 
     private void _SetOnCooldown(float duration)
