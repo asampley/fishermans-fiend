@@ -54,7 +54,7 @@ public class TentacleLaunch : MonoBehaviour
     {
         if (this.enabled)
         {
-            collision.GetComponent<ICollidable>().Collide(this.GetComponent<Tentacle>());
+            collision.GetComponent<ICollidable>()?.Collide(this.GetComponent<Tentacle>());
         }
     }
 
