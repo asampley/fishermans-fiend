@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stronger Velocity +2
   m_EditorClassIdentifier: 
   Title: Stronger Velocity +2
-  Icon: {fileID: 21300000, guid: 8cbb1e4751f03774fa3d4226d7b270ff, type: 3}
+  Icon: {fileID: 21300000, guid: 378d370846b9fe94c8ead5da4cc3115d, type: 3}
   Desc: Tentacles now launch with more force.
   Effect: 1
   Amount: 2
