@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jelly
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4177565170746423647, guid: c2475369ba96b294fa8d3e03cdbc3913, type: 3}
-  Sprite: {fileID: 21300000, guid: 0cfc9ef9b10bd64469424bdfb9d183d9, type: 3}
+  Sprite: {fileID: 21300000, guid: beadc4a742c47a4419a6992df89d77ee, type: 3}
   SpawnsBelowSurface: 1
   Health: 10
   Speed: 2
