@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7fb5f0c1726b11429122eb0d59f914d, type: 3}
-  m_Name: Test
+  m_Name: Turtle
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4177565170746423647, guid: 2081acd827d4e20409cd3f71b0efe798, type: 3}
   Sprite: {fileID: 21300000, guid: 7e0c507a38f9f7340a0fec129828c9aa, type: 3}
