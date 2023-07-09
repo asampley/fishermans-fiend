@@ -16,10 +16,12 @@ MonoBehaviour:
   Name: Dude
   Desc: A basic dude.
   Sprite: {fileID: 21300000, guid: 2417d61f8a1e7de459a56152697781df, type: 3}
-  Rarity: 10
+  Rarity: 1
   Biomass: 20
-  Resistance: 0.5
-  ProgressRate: 0.25
+  Resistance: 0.1
+  ProgressRate: 0.05
+  GoTimeRange: {x: 100, y: 100}
+  StopTimeRange: {x: 0, y: 0}
   fighting:
     audios:
     - {fileID: 8300000, guid: 01cb968193b9ace409cc4bf6810841d7, type: 3}

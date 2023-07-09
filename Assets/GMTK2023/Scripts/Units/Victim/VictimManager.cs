@@ -60,7 +60,7 @@ public class VictimManager : UnitManager, ICollidable
     public void CalculateSpeed()
     {
         int rowing = this._occupants.Where(o => o.GetComponent<OccupantManager>().IsRowing()).Count();
-        this.speedFactor = (float)rowing / Mathf.Max(_occupants.Count, 1);
+        this.speedFactor = 0.5f * (1f + (float)rowing / Mathf.Max(_occupants.Count, 1));
     }
 
     public void RemoveOccupant(OccupantManager occupant)

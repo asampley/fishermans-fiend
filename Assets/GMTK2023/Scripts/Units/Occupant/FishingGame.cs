@@ -24,6 +24,8 @@ public class FishingGame : MonoBehaviour
 
     public float resistance;
     public float progressRate;
+    public Vector2 pressTimeRange;
+    public Vector2 nopressTimeRange;
 
     public Tentacle tentacle { get; set; }
 
@@ -44,6 +46,12 @@ public class FishingGame : MonoBehaviour
     public event Action<bool> ShouldPull;
     public event Action Won;
     public event Action Lost;
+
+    void Start()
+    {
+        // always switch to false to start, in update
+        press = true;
+    }
 
     void OnEnable()
     {
@@ -125,9 +133,14 @@ public class FishingGame : MonoBehaviour
         if (secondsToSwitch <= 0)
         {
             press = !press;
-            secondsToSwitch = UnityEngine.Random.Range(1f, 2f);
+
+            Vector2 range = press ? pressTimeRange : nopressTimeRange;
+
+            secondsToSwitch = UnityEngine.Random.Range(range.x, range.y);
         }
     }
+
+
 
     public bool HasLost()
     {

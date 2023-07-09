@@ -24,6 +24,8 @@ public class OccupantManager : MonoBehaviour, ICollidable
         _parent = parent;
         _fishingGame.resistance = data.Resistance;
         _fishingGame.progressRate = data.ProgressRate;
+        _fishingGame.nopressTimeRange = data.StopTimeRange;
+        _fishingGame.pressTimeRange = data.GoTimeRange;
         _fishingGame.clip = data.fighting.Rand();
     }
 

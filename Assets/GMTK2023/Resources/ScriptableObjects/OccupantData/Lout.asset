@@ -18,8 +18,10 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: a209920b371bc844c9ebc825c2044535, type: 3}
   Rarity: 1
   Biomass: 10
-  Resistance: 0.33
+  Resistance: 0.5
   ProgressRate: 0.5
+  GoTimeRange: {x: 1, y: 2}
+  StopTimeRange: {x: 1, y: 2}
   fighting:
     audios:
     - {fileID: 8300000, guid: 01cb968193b9ace409cc4bf6810841d7, type: 3}
