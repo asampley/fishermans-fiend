@@ -1084,6 +1084,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2954362706370602063, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413040989490174291, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
+      propertyPath: _abilityIconManager
+      value: 
+      objectReference: {fileID: 197303710}
+    - target: {fileID: 3413040989490174291, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
+      propertyPath: _inkCloudSpriteRenderer
+      value: 
+      objectReference: {fileID: 397068188}
     - target: {fileID: 7716237402231772980, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
       propertyPath: _attackStartPos
       value: 
@@ -1111,10 +1123,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 534263679454660812, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1662903715}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
 --- !u!1 &286113961
 GameObject:
@@ -3729,11 +3738,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &945593753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 534263679454660812, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
-  m_PrefabInstance: {fileID: 276468837}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041414406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5899,20 +5903,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8346595149759257407, guid: 599fe1229a9937e46aaa4e478f85422d, type: 3}
   m_PrefabInstance: {fileID: 276468837}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1662903715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945593753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4265e4c0d310094e8108d42a48860f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inkCloudSpriteRenderer: {fileID: 397068188}
-  _abilityIconManager: {fileID: 197303710}
 --- !u!1 &1705194161
 GameObject:
   m_ObjectHideFlags: 0

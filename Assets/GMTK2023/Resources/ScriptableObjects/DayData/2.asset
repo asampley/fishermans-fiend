@@ -28,4 +28,4 @@ MonoBehaviour:
   SpawnCooldown: 5
   SpawnEnemyTimeMuliplier: 4
   SpawnObstacleTimeMultiplier: 4
-  RequiredBiomass: 200
+  RequiredBiomass: 50
