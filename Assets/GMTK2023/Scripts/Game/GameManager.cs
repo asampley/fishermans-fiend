@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     private float _sirenSongCooldown = 30f;
     public float SirenSongCooldown => _inkCloudCooldown;
     private bool _sirenSongActive;
-    public bool SirenSongActive => _sirenSongActive; 
+    public bool SirenSongActive => _sirenSongActive;
 
 
 
@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
             _spawnEnemyTimer = 0f;
             _nextEnemySpawn = UnityEngine.Random.Range(Mathf.Max(3, (Globals.MIN_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult),
                 Mathf.Max(3, (Globals.MAX_TIME_BETWEEN_ENEMY_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult));
+            _nextEnemySpawn *= _currentDayData.SpawnEnemyTimeMuliplier;
         }
     }
 
@@ -170,6 +171,7 @@ public class GameManager : MonoBehaviour
             _spawnObstacleTimer = 0f;
             _nextObstacleSpawn = UnityEngine.Random.Range(Mathf.Max(3, Globals.MIN_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown * AwarenessMult),
                 Mathf.Max(3, Globals.MAX_TIME_BETWEEN_OBSTACLE_SPAWNS + _currentDayData.SpawnCooldown) * AwarenessMult);
+            _nextObstacleSpawn *= _currentDayData.SpawnObstacleTimeMultiplier;
         }
     }
 
