@@ -2734,10 +2734,12 @@ MonoBehaviour:
   _moonSprite: {fileID: 21300000, guid: 9a2db86ef28e1ca4fa053589aac61710, type: 3}
   _skyObject: {fileID: 1599412514}
   _lightObject: {fileID: 811431727}
+  _lightDayRotation: {x: 40, y: 0, z: 0}
+  _lightNightRotation: {x: 84, y: 0, z: 0}
   _skyDaySprite: {fileID: 21300000, guid: 93a829e5ec6486a4886226cd2d45c7a2, type: 3}
   _skyNightSprite: {fileID: 21300000, guid: e21383438fa74094fb0f983bd9673f9d, type: 3}
   _waterDayColor: {r: 0.23137257, g: 0.38823533, b: 0.5294118, a: 0}
-  _waterNightColor: {r: 0.003921569, g: 0.06666667, b: 0.1254902, a: 0}
+  _waterNightColor: {r: 0.0627451, g: 0.15294118, b: 0.23529413, a: 0}
   _player: {fileID: 1662903712}
   _playerHurtClip: {fileID: 8300000, guid: 7f99be13c8e5e2d4d871d3dc4f884d8d, type: 3}
 --- !u!1 &605563204

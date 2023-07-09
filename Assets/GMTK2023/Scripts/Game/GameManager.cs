@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Light _lightObject;
     [SerializeField]
+    private Vector3 _lightDayRotation;
+    [SerializeField]
+    private Vector3 _lightNightRotation;
+    [SerializeField]
     private Sprite _skyDaySprite;
     [SerializeField]
     private Sprite _skyNightSprite;
@@ -80,7 +84,7 @@ public class GameManager : MonoBehaviour
     public bool CanLaserBeam => _canLaserBeam;
     private bool _canInkCloud = false;
     public bool CanInkCloud => _canInkCloud;
-    
+
     private float _inkCloudCooldown = 30f;
     public float InkCloudCooldown => _inkCloudCooldown;
     private bool _inkCloudActive;
@@ -208,7 +212,7 @@ public class GameManager : MonoBehaviour
         _isNight = false;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _sunSprite;
         _skyObject.sprite = _skyDaySprite;
-        _lightObject.enabled = true;
+        _lightObject.transform.localEulerAngles = _lightDayRotation;
         Camera.main.backgroundColor = _waterDayColor;
     }
 
@@ -233,7 +237,7 @@ public class GameManager : MonoBehaviour
     {
         _isNight = true;
         _skyObject.sprite = _skyNightSprite;
-        _lightObject.enabled = false;
+        _lightObject.transform.localEulerAngles = _lightNightRotation;
         Camera.main.backgroundColor = _waterNightColor;
         _sunObject.GetComponent<SpriteRenderer>().sprite = _moonSprite;
     }
