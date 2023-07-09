@@ -13,7 +13,7 @@ public class OccupantData : ScriptableObject
     public int Rarity;
     public int Biomass;
     public float Resistance;
-    public float Health;
+    public float ProgressRate;
 
     public AudioSet fighting;
     public AudioSet fall;

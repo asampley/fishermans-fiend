@@ -23,7 +23,7 @@ public class OccupantManager : MonoBehaviour, ICollidable
         _spriteRenderer.sprite = data.Sprite;
         _parent = parent;
         _fishingGame.resistance = data.Resistance;
-        _fishingGame.health = data.Health;
+        _fishingGame.progressRate = data.ProgressRate;
         _fishingGame.clip = data.fighting.Rand();
     }
 

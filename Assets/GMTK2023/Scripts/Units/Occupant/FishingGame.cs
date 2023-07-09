@@ -17,15 +17,18 @@ public class FishingGame : MonoBehaviour
     public Sprite pressNotpressed;
     public Sprite nopressNotpressed;
 
+    public Transform progressBar;
+
     private int key;
     private KeyCode keyCode { get { return Globals.KEYS[key]; } }
 
     public float resistance;
-    public float health;
+    public float progressRate;
 
     public Tentacle tentacle { get; set; }
 
     private float resistanceProgress;
+    private float progress = 0.5f;
 
     private bool _press;
     private bool press
@@ -93,17 +96,19 @@ public class FishingGame : MonoBehaviour
         if (press && pressed)
         {
             gameImage.sprite = pressPressed;
-            health -= GameManager.Instance.TentacleStrength * Time.deltaTime;
+            progress += progressRate * GameManager.Instance.TentacleStrength * Time.deltaTime;
         }
         else if (press != pressed)
         {
             gameImage.sprite = press ? pressNotpressed : nopressPressed;
-            resistanceProgress += Time.deltaTime * resistance;
+            progress -= Time.deltaTime * resistance;
         }
         else
         {
             gameImage.sprite = nopressNotpressed;
         }
+
+        progressBar.localScale = new(progress, 1f, 1f);
 
         if (this.HasWon())
         {
@@ -126,11 +131,11 @@ public class FishingGame : MonoBehaviour
 
     public bool HasLost()
     {
-        return resistanceProgress >= 1.0;
+        return progress <= 0.0;
     }
 
     public bool HasWon()
     {
-        return health <= 0.0;
+        return progress >= 1.0;
     }
 }
