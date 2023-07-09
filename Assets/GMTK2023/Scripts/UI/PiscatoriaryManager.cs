@@ -143,4 +143,31 @@ public class PiscatoriaryManager : MonoBehaviour
         _entryParent.gameObject.SetActive(false);
         _listParent.gameObject.SetActive(true);
     }
+
+    public int GetTotalCaught()
+    {
+        int totalCaught = 0;
+
+        foreach (KeyValuePair<OccupantData, bool> pair in _hasBeenCaughtDict)
+        {
+            if (pair.Value)
+            {
+                totalCaught++;
+            }
+        }
+
+        return totalCaught;
+    }
+
+    public int GetTotal()
+    {
+        int total = 0;
+
+        foreach(KeyValuePair<OccupantData, bool> pair in _hasBeenCaughtDict)
+        {
+            total++;
+        }
+
+        return total;
+    }
 }
