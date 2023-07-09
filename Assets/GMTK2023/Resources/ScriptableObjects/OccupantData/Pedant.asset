@@ -19,7 +19,7 @@ MonoBehaviour:
   Rarity: 7
   Biomass: 20
   Resistance: 0.5
-  ProgressRate: 0.25
+  ProgressRate: 0.5
   GoTimeRange: {x: 1.5, y: 3}
   StopTimeRange: {x: 4, y: 6}
   fighting:

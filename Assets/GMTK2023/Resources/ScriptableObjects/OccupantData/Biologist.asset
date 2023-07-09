@@ -18,8 +18,8 @@ MonoBehaviour:
   Sprite: {fileID: 21300000, guid: 7639b8c7778238544b0be31db9343e59, type: 3}
   Rarity: 7
   Biomass: 20
-  Resistance: 0.5
-  ProgressRate: 0.5
+  Resistance: 0.33
+  ProgressRate: 0.33
   GoTimeRange: {x: 1, y: 2}
   StopTimeRange: {x: 1, y: 2}
   fighting:
