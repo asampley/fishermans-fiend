@@ -11,7 +11,10 @@ public class UIManager : MonoBehaviour
     private GameObject _gameOverParent;
     [SerializeField]
     private TextMeshProUGUI _biomassAmountText;
-
+    [SerializeField]
+    private GameObject _victoryObject;
+    [SerializeField]
+    private GameObject _loseObject;
 
     private void OnEnable()
     {
@@ -34,9 +37,16 @@ public class UIManager : MonoBehaviour
         _upgradeMenuParent.SetActive(true);
     }
 
+    private void _ShowVictoryScreen()
+    {
+        _victoryObject.SetActive(true);
+        _loseObject.SetActive(false);
+    }
+
     private void _ShowLossScreen()
     {
-        _gameOverParent.SetActive(true);
+        _victoryObject.SetActive(true);
+        _loseObject.SetActive(false);
     }
 
     public void GoToNextDay()
