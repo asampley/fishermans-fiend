@@ -11,6 +11,9 @@ public class SirenSong : MonoBehaviour
     private float _cooldownDuration;
     private float _timeElapsed;
 
+    [SerializeField]
+    private AudioClip _sirenSongClip;
+
     void OnEnable()
     {
         InputManager.SirenSong += _OnSirenSong;
@@ -28,20 +31,23 @@ public class SirenSong : MonoBehaviour
 
         _timeElapsed += Time.deltaTime;
         _abilityIconManager.SetMaskPercentage(_timeElapsed / _cooldownDuration);
+        if (_timeElapsed > GameManager.Instance.SirenSongDuration)
+        {
+            GameManager.Instance.SetSirenSongActive(false);
+        }
         if (_timeElapsed >= _cooldownDuration)
         {
             _isOnCooldown = false;
-            GameManager.Instance.SetSirenSongActive(false);
         }
     }
 
     private void _OnSirenSong(InputManager.SirenSongEvent ev)
     {
-        Debug.Log("Running");
         if (_isOnCooldown || !GameManager.Instance.CanSirenSong) return;
-        Debug.Log("Running2");
+
         GameManager.Instance.SetSirenSongActive(true);
         _SetOnCooldown(GameManager.Instance.SirenSongCooldown);
+        AudioManager.Instance.source.PlayOneShot(_sirenSongClip);
     }
 
     private void _SetOnCooldown(float duration)

@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342c0511233237d4c9f21642bbede1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parent: {fileID: 2002129986}
+  _parent: {fileID: 1617012843}
   _listParent: {fileID: 286113962}
   _listContentParent: {fileID: 1223192558}
   _entryParent: {fileID: 347850434}
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   _closoutButton: {fileID: 749364034}
   _backButton: {fileID: 2017775273}
   _uncaughtPrefab: {fileID: 5105349851102179849, guid: 4023bfc884b41694fb93cca2d7c7bf05, type: 3}
-  _caughtPrefab: {fileID: 8655487386528908933, guid: 759d89ad0d24f9547bfc25bd97983a58, type: 3}
+  _caughtPrefab: {fileID: 2301079548580585851, guid: 759d89ad0d24f9547bfc25bd97983a58, type: 3}
 --- !u!1 &136418660
 GameObject:
   m_ObjectHideFlags: 0
@@ -8654,6 +8654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityIconManager: {fileID: 1615149104}
+  _sirenSongClip: {fileID: 8300000, guid: 55d1f5eb307fc6f4fa7c186868fd0135, type: 3}
 --- !u!1 &1699504827
 GameObject:
   m_ObjectHideFlags: 0
@@ -9900,7 +9901,7 @@ GameObject:
   - component: {fileID: 2002129988}
   - component: {fileID: 2002129987}
   m_Layer: 5
-  m_Name: PiscatoriaryParent
+  m_Name: Fishermanomicon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
