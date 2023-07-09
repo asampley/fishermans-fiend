@@ -3083,8 +3083,10 @@ MonoBehaviour:
   _upgradeMenuParent: {fileID: 1974319912}
   _gameOverParent: {fileID: 617414432}
   _biomassAmountText: {fileID: 576141726}
-  _victoryObject: {fileID: 0}
-  _loseObject: {fileID: 0}
+  _victoryObject: {fileID: 804453926}
+  _loseObject: {fileID: 2004659678}
+  _piscatoriaryManager: {fileID: 135911836}
+  _completionText: {fileID: 1608725850}
 --- !u!1 &589815169
 GameObject:
   m_ObjectHideFlags: 0
@@ -8786,9 +8788,9 @@ MonoBehaviour:
   m_MinWidth: -1
   m_MinHeight: 100
   m_PreferredWidth: -1
-  m_PreferredHeight: 300
+  m_PreferredHeight: -1
   m_FlexibleWidth: -1
-  m_FlexibleHeight: 100
+  m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!222 &2004659682
 CanvasRenderer:

@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     public event Action FinishDay;
     public event Action NewDay;
     public event Action LoseGame;
+    public event Action WinGame;
 
 
     private void OnEnable()
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
         if (!_isNight && _dayTimer >= Globals.DAY_DURATION) _StartNight();
         if (_dayTimer >= Globals.DAY_TOTAL_DURATION) _EndDay();
 
-        if (Globals.DAY_TOTAL_DURATION - _dayTimer <= 15) return;
+        if (Globals.DAY_TOTAL_DURATION - _dayTimer <= 1) return;
 
         if (!_isNight && _currentDayData.DayEnemiesToSpawn.Length > 0
             || _isNight && _currentDayData.NightEnemiesToSpawn.Length > 0)
@@ -248,7 +249,11 @@ public class GameManager : MonoBehaviour
     {
         SetPauseGame(true);
 
-        if (_currentBiomass >= _currentDayData.RequiredBiomass)
+        if (_currentDay >= 10 && _currentBiomass >= _currentDayData.RequiredBiomass)
+        {
+            WinGame?.Invoke();
+        }
+        else if (_currentBiomass >= _currentDayData.RequiredBiomass)
         {
             FinishDay?.Invoke();
         }
@@ -256,6 +261,7 @@ public class GameManager : MonoBehaviour
         {
             LoseGame?.Invoke();
         }
+
         foreach (Transform child in _spawnParent)
         {
             Destroy(child.gameObject);
