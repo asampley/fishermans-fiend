@@ -32,6 +32,7 @@ public class PowerGaugeManager : MonoBehaviour
     private void _MouseDown()
     {
         _mouseIsDown = true;
+        _powerGaugeObject.gameObject.SetActive(true);
         _startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -48,6 +49,7 @@ public class PowerGaugeManager : MonoBehaviour
     private void _MouseUp()
     {
         _mouseIsDown = false;
+        _powerGaugeObject.gameObject.SetActive(false);
         _powerGaugeMask.fillAmount = 0f;
     }
 }
