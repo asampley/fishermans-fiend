@@ -20,7 +20,6 @@ MonoBehaviour:
   VictimTypeId: 0
   PotentialOccupants:
   - {fileID: 11400000, guid: c024c76352d85bf4dbd7d87223c88019, type: 2}
-  - {fileID: 11400000, guid: 75a7ce675e2504f4ca30b73041758e3f, type: 2}
   falling:
     audios:
     - {fileID: 8300000, guid: 03c6f55b800305141ae052728e456bcd, type: 3}

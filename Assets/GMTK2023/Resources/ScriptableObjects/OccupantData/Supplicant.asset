@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: Supplicant
   Desc: I think I heard him pleading on the way down.
   Sprite: {fileID: 21300000, guid: ad2a86b5e5557f9439b2a2b2d26d5b22, type: 3}
-  Rarity: 5
+  Rarity: 7
   Biomass: 30
   Resistance: 0.4
   ProgressRate: 0.2
