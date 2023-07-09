@@ -26,7 +26,7 @@ public class InkCloud : MonoBehaviour
 
     private void Update()
     {
-        if (!_isOnCooldown) return;
+        if (!_isOnCooldown || !GameManager.Instance.CanInkCloud) return;
 
         _timeElapsed += Time.deltaTime;
         _abilityIconManager.SetMaskPercentage(_timeElapsed / _cooldownDuration);
@@ -71,5 +71,10 @@ public class InkCloud : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    public void ActivateManager()
+    {
+        _abilityIconManager.gameObject.SetActive(true);
     }
 }

@@ -9,7 +9,8 @@ public enum UpgradeEffect
     AddAttackStrength,
     EnablePoisonDartAttack,
     EnableLaserBeamAttack,
-    EnableInkPouch,
+    EnableInkCloud,
+    EnableSirenSong,
 }
 
 [CreateAssetMenu(fileName = "UpgradeData", menuName = "Scriptable Objects/UpgradeData", order = 7)]

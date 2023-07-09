@@ -24,7 +24,7 @@ public class SirenSong : MonoBehaviour
 
     private void Update()
     {
-        if (!_isOnCooldown) return;
+        if (!_isOnCooldown || !GameManager.Instance.CanSirenSong) return;
 
         _timeElapsed += Time.deltaTime;
         _abilityIconManager.SetMaskPercentage(_timeElapsed / _cooldownDuration);
@@ -49,5 +49,10 @@ public class SirenSong : MonoBehaviour
         _cooldownDuration = duration;
         _abilityIconManager.SetMaskPercentage(1);
         _isOnCooldown = true;
+    }
+
+    public void ActivateManager()
+    {
+        _abilityIconManager.gameObject.SetActive(true);
     }
 }

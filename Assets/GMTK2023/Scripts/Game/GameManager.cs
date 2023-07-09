@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     private Color _waterDayColor;
     [SerializeField]
     private Color _waterNightColor;
+    [SerializeField]
+    private Transform _player;
 
 
     [SerializeField]
@@ -75,15 +77,18 @@ public class GameManager : MonoBehaviour
     private bool _canPoisonDart = false;
     public bool CanPoisonDart => _canPoisonDart;
     private bool _canLaserBeam = false;
+    public bool CanLaserBeam => _canLaserBeam;
     private bool _canInkCloud = false;
     public bool CanInkCloud => _canInkCloud;
-    public bool CanLaserBeam => _canLaserBeam;
+    
     private float _inkCloudCooldown = 30f;
     public float InkCloudCooldown => _inkCloudCooldown;
     private bool _inkCloudActive;
+    private bool _canSirenSong = false;
+    public bool CanSirenSong => _canSirenSong;
     public bool InkCloudActive => _sirenSongActive;
     private float _sirenSongCooldown = 30f;
-    public float SirenSongCooldown => _inkCloudCooldown;
+    public float SirenSongCooldown => _sirenSongCooldown;
     private bool _sirenSongActive;
     public bool SirenSongActive => _sirenSongActive; 
 
@@ -305,6 +310,7 @@ public class GameManager : MonoBehaviour
         else
         {
             _currentBiomass -= upgrade.Cost;
+            EventManager.TriggerEvent("UpdateBiomass", _currentBiomass);
 
             switch (upgrade.Effect)
             {
@@ -326,8 +332,13 @@ public class GameManager : MonoBehaviour
                 case UpgradeEffect.EnableLaserBeamAttack:
                     _canLaserBeam = true;
                     break;
-                case UpgradeEffect.EnableInkPouch:
+                case UpgradeEffect.EnableInkCloud:
                     _canInkCloud = true;
+                    _player.GetComponent<InkCloud>().ActivateManager();
+                    break;
+                case UpgradeEffect.EnableSirenSong:
+                    _canInkCloud = true;
+                    _player.GetComponent<SirenSong>().ActivateManager();
                     break;
             }
 
