@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Biomass Gain +20%
   Icon: {fileID: 0}
+  Desc: Increases the amount of biomass gained.
   Effect: 0
   Amount: 0.2
   Cost: 25

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UpgradeScreenManager : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class UpgradeScreenManager : MonoBehaviour
     private Transform _upgradeParent;
     [SerializeField]
     private GameObject _upgradeIconPrefab;
+    [SerializeField]
+    private TextMeshProUGUI _descText;
 
     private Dictionary<UpgradeData, bool> _hasPurchasedList = new();
 
@@ -43,7 +46,7 @@ public class UpgradeScreenManager : MonoBehaviour
             {
                 GameObject g = Instantiate(_upgradeIconPrefab, _upgradeParent);
 
-                g.GetComponent<UpgradeIconManager>().Initialize(pair.Key);                
+                g.GetComponent<UpgradeIconManager>().Initialize(pair.Key, _descText);
             }
         }        
     }

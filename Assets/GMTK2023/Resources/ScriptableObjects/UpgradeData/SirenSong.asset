@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Siren Song
   Icon: {fileID: 21300000, guid: 76dceb6e639cf06419d0fc03220c7710, type: 3}
+  Desc: Grants an ability that makes units stop moving.
   Effect: 7
   Amount: 0
   Cost: 20

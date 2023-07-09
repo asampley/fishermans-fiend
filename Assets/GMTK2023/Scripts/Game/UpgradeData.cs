@@ -18,6 +18,7 @@ public class UpgradeData : ScriptableObject
 {
     public string Title;
     public Sprite Icon;
+    public string Desc;
     public UpgradeEffect Effect;
     public float Amount;
     public int Cost;
