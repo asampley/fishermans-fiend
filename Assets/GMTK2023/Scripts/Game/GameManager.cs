@@ -244,9 +244,7 @@ public class GameManager : MonoBehaviour
 
     private void _EndDay()
     {
-        _gameIsPaused = true;
-        Time.timeScale = 0;
-        Debug.Log("Day is over");
+        SetPauseGame(true);
 
         if (_currentBiomass >= _currentDayData.RequiredBiomass)
         {
@@ -387,8 +385,7 @@ public class GameManager : MonoBehaviour
     public void StartNextDay()
     {
         _SelectNextDay();
-        Time.timeScale = 1;
-        _gameIsPaused = false;
+        SetPauseGame(false);
         NewDay?.Invoke();
     }
 
@@ -400,5 +397,19 @@ public class GameManager : MonoBehaviour
     public void SetSirenSongActive(bool isActive)
     {
         _sirenSongActive = isActive;
+    }
+
+    public void SetPauseGame(bool paused)
+    {
+        _gameIsPaused = paused;
+
+        if (paused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 }

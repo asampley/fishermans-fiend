@@ -110,5 +110,15 @@ public class PiscatoriaryManager : MonoBehaviour
     private void _OnTogglePiscatoriary()
     {
         _parent.gameObject.SetActive(!_parent.gameObject.activeInHierarchy);
+
+
+        if (_parent.gameObject.activeInHierarchy)
+        {
+            GameManager.Instance.SetPauseGame(true);
+        }
+        else
+        {
+            GameManager.Instance.SetPauseGame(false);
+        }
     }
 }
