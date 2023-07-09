@@ -19,7 +19,7 @@ MonoBehaviour:
   Rarity: 10
   Biomass: 20
   Resistance: 0.5
-  Health: 4
+  ProgressRate: 0.25
   fighting:
     audios:
     - {fileID: 8300000, guid: 01cb968193b9ace409cc4bf6810841d7, type: 3}
